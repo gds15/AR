@@ -97,7 +97,7 @@
                             <a href="dizimos">Dizimos</a>
                         </li>
                         <li>
-                            <a href="outros">Outros</a>
+                            <a href="outros">Função</a>
                         </li>
                     </ul>
                 </li>
@@ -106,6 +106,12 @@
                 </li>
                 <li>
                     <a href="contatos">CONTATOS</a>
+                </li>
+                <li>
+                    <a href="listaFuncao">LF</a>
+                </li> 
+                <li>
+                    <a href="testetable">Teste table</a>
                 </li>
             </ul>
 
