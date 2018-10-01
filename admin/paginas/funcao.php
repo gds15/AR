@@ -35,7 +35,7 @@ if ( isset ( $_GET["id"] ) ) {
                             <h4 class="mb-0">Cadastro de Função</h4>
                         </div>
                         <div class="card-body">
-                            <form class="form" method="post" action="back/salvarFuncao.php">
+                            <form class="form" method="POST" action="salvarFuncao">
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">ID:</label>
                                     <div class="col-lg-9">

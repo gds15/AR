@@ -1,38 +1,21 @@
-
-	<div class="well container">
-			<ol class="breadcrumb">
-         		<li class="breadcrumb-item active">Lista de Funções</li>
+<div class="well container">
+            <ol class="breadcrumb">
+         		<li class="breadcrumb-item active">Lista de Membros</li>
        	 	</ol>
 
-		<a href="funcao" title="Cadastro de admin" class="btn btn-outline-success pull-right">
+		<a href="membro" title="Cadastro de Membros" class="btn btn-outline-success pull-right">
 			<i class="fa fa-file"></i>
 			Novo Cadastro
 		</a>
 
 		<div class="clearfix"></div>
-		<br> 
-		<form name="formpesquisa" method="get"
-		class="form-inline text-center">
-			<label for="palavra">Palavra-chave:
-			<input type="text" name="palavra"
-			required placeholder="Digite uma palavra"
-			class="form-control">
-			</label>
-			<button type="submit" class="btn btn-outline-success">
-				<i class="fa fa-search">
-				</i>
-			</button>
-		</form>
 
+		
 		<?php
 
-			$palavra = "";
-			if ( isset ( $_GET["palavra"] ) ) $palavra = trim ( $_GET["palavra"] );
-
-			$palavra = "%$palavra%";
-
-			//buscar da funcao
-			$sql = "select * from funcao where funcao like ? order by funcao";
+			
+			//buscar da categoria
+			$sql = "select * from membro order by nome";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $palavra);
 			//executar o sql
@@ -41,17 +24,16 @@
 			//conta as linhas de resultado
 			$conta = $consulta->rowCount();
 
-			echo "<p>Foram encontrados $conta 
-			Registros:</p>";
+			echo "<p>Foram encontrados $conta  Registros:</p>";
 
 		?>
-		
-		
+
 		<table class="table-dark table-striped table table-bordered">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
-					<td>Função</td>
+					<td>Nome</td>
+					<td>CPF</td>
 					<td width="15%">Opções</td>
 				</tr>
 			</thead>
@@ -61,13 +43,15 @@
 
 				//separar os dados do banco de dados
 				$id = $dados->id;
-				$funcao = $dados->funcao;
+				$nome = $dados->nome;
+				$cpf = $dados->cpf;
 
 				echo "<tr>
 					<td>$id</td>
-					<td>$funcao</td>
+					<td>$nome</td>
+					<td>$cpf</td>
 					<td>
-						<a href='funcao.php?id=$id'
+						<a href='membro.php?id=$id'
 						class='btn btn-outline-primary'>
 							<i class='fa fa-pencil'></i>
 						</a>
@@ -83,7 +67,6 @@
 
 			?>
 		</table>
-	
 
 	</div>
 	<script type="text/javascript">
@@ -91,16 +74,25 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirfuncao.php?id="+id;
+				location.href = "excluirMembro.php?id="+id;
 			}
 		}
+
+		$(document).ready( function(){
+			//aplicar o dataTable na tabela
+			$(".table").dataTable({
+				"language": {
+		            "lengthMenu": "Mostrando _MENU_ registros por página",
+		            "zeroRecords": "Nenhum dado encontrado - sorry",
+		            "info": "Mostrando _PAGE_ de _PAGES_",
+		            "infoEmpty": "Nenhum dado",
+		            "infoFiltered": "(filtrado de _MAX_ total)",
+		            "search": "Busca: ",
+		            "paginate": {
+				      "previous": "Anterior",
+				      "next": "Próxima"
+				    }
+		        }
+			});
+		})
 	</script>
-
-</body>
-</html>
-
-
-
-
-
-
