@@ -41,29 +41,22 @@
 
 
 ?>
-<div class="container">
-	<div class="well">
-		<h1>Cadastro de Membros</h1>
-
-		<a href="membro.php" 
-		class="btn btn-success pull-right">
-			<i class="glyphicon glyphicon-file"></i>
-			Novo Cadastro
-		</a>
-		<a href="listarMembro.php" 
-		class="btn btn-primary pull-right">
-			<i class="glyphicon glyphicon-search"></i> Listar Membros
-		</a>
-
-		<div class="clearfix"></div>
-
-		<form name="form1" method="post" 
-		action="salvarMembro.php" 
-		enctype="multipart/form-data"
-		novalidate>
+<div class="container py-1">
+    <div class="row">
+        <div class="mx-auto col-sm-12">
+                    <!-- form funcao -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Cadastro de Membros</h4>
+                        </div>
+                        <div class="card-body">
+                        <form name="form1" method="post" 
+						action="salvarMembro" 
+						enctype="multipart/form-data"
+						novalidate>
 
 			<div class="control-group">
-				<label for="id">ID</label>
+				<label for="id">ID:</label>
 				<div class="controls">
 					<input type="text" readonly 
 					name="id" id="id" 
@@ -73,7 +66,7 @@
 			</div>
 
 			<div class="control-group">
-				<label for="nome">Nome</label>
+				<label for="nome">Nome:</label>
 				<div class="controls">
 					<input type="text" name="nome"
 					required data-validation-required-message="Preencha seu nome completo"
@@ -85,7 +78,7 @@
 
 			<div class="control-group">
 				<label for="funcao_id">
-				Selecione a Função
+				Selecione a Função:
 				</label>
 				<div class="controls">
 					<select name="funcao_id"
@@ -118,13 +111,8 @@
 				</div>
 			</div>
 
-
-
-			
-
-
 			<div class="control-group">
-				<label for="email">E-mail</label>
+				<label for="email">E-mail:</label>
 				<div class="controls">
 					<input type="email" name="email"
 					required data-validation-required-message="Preencha seu e-mail"
@@ -136,7 +124,7 @@
 			</div>
 
 			<div class="control-group">
-				<label for="cpf">CPF</label>
+				<label for="cpf">CPF:</label>
 				<div class="controls">
 					<input type="text" name="cpf"
 					id="cpf" required
@@ -157,6 +145,7 @@
 					data-validation-required-message="Digite sua data de nascimento"
 					data-mask="99/99/9999"
 					onblur="verificaData(this.value)"
+					placeholder="Data Nascimento"
 					value="<?=$datanascimento;?>"
 					class="form-control">
 				</div>
@@ -169,13 +158,14 @@
 					required
 					data-validation-required-message="Digite um telefone"
 					data-mask="(99) 9999-9999?9"
+					placeholder="Telefone"
 					value="<?=$telefone;?>"
 					class="form-control">
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label for="nome">Endereço</label>
+				<label for="nome">Endereço:</label>
 				<div class="controls">
 					<input type="text" name="endereco"
 					required data-validation-required-message="Preencha seu Endereço"
@@ -186,7 +176,7 @@
 			</div>
 
 			<div class="control-group">
-				<label for="nome">Cidade</label>
+				<label for="nome">Cidade:</label>
 				<div class="controls">
 					<input type="text" name="cidade"
 					required data-validation-required-message="Preencha sua Cidade"
@@ -197,12 +187,13 @@
 			</div>
 
 			<div class="control-group">
-				<label for="nome">Estado</label>
+				<label for="nome">Estado:</label>
 				<div class="controls">
 					<select	name="estado"
 						class="form-control"
 						required
-						data-validation-required-message="Selecione o Estado">
+						data-validation-required-message="Selecione o Estado"
+						placeholder="Selecione o Estado">
 							<option value=""></option>
 							<option value="ac">Acre</option>
 							<option value="al">Alagoas</option>
@@ -229,18 +220,14 @@
 							<option value="al">Roraima</option>
 							<option value="al">Santa Catarina</option>
 							<option value="al">Sergipe</option>
-							<option value="al">Tocantins</option>				
-
-
+							<option value="al">Tocantins</option>			
 
 						</select>
 					</div>
 
-				</div>
-			</div>
-
+				
 			<div class="control-group">
-				<label for="nome">Bairro</label>
+				<label for="nome">Bairro:</label>
 				<div class="controls">
 					<input type="text" name="bairro"
 					required data-validation-required-message="Preencha seu Bairro"
@@ -255,6 +242,7 @@
 				<label for="cep">Cep:</label>
 				<div class="controls">
 					<input type="text" name="cep"
+					placeholder="CEP"
 					required
 					data-validation-required-message="Digite um Cep Valido"
 					data-mask="99999-999"
@@ -263,11 +251,9 @@
 				</div>
 			</div>
 
+			<br>
 
-			
-
-			
-			<button type="submit" class="btn btn-success">Salvar/Atualizar</button>
+			<button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
 
 			<script type="text/javascript">
 				function verificaCpf(cpf) {
@@ -323,6 +309,11 @@
 				}
 			</script>
 
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
 
 
 

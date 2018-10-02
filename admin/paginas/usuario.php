@@ -37,87 +37,108 @@
                             <h4 class="mb-0">Cadastro de Usuario</h4>
                         </div>
                         <div class="card-body">
-                            <form name="formcadastro" class="form" method="" action="salvarUsuario" role="form" novalidate>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">ID:</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" readonly type="text" value="<?=$id;?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Nome:</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="<?=$nome;?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Email:</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="email" value="<?=$email;?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Login:</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" id="loginusuario" type="text"
-                                        required onblur="verificaLogin(this.value)"
-						                data-validation-required-message="Preencha o login" value="<?=$login;?>">
-                                    </div>
-                                </div>
-                               
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Senha:</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" <?php if ( empty ( $senha ) ) echo "required data-validation-required-message='Preencha a senha' "; ?>
-                                         type="password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Confirmar Senha:</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" data-validation-match-match="senha"
-						                data-validation-match-message="As senhas digitadas são diferentes"
-                                        type="password">
-                                    </div>
-                                </div>
+                        <form name="formcadastro" method="post" action="salvarUsuario" novalidate>
+			<fieldset>
+				<legend>Preencha os campos:</legend>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Ativo:</label>
-                                    <div class="col-lg-9">
-                                        <select id="ativo" class="form-control" size="0"
-                                        required
-						                data-validation-required-message="Selecione o Ativo">
-                                            <option value="sim">Sim</option>
-                                            <option value="nao">Não</option>
-                                        </select>
-                                    </div>
-                                    <script type="text/javascript">
-						            $("#ativo").val("<?=$ativo;?>");
-					                </script>
-                                </div>
+				<div class="control-group">
+					<label for="id">ID:</label>
+					<div class="controls">
+						<input type="text" name="id"
+						class="form-control" id="id"
+						readonly
+						value="<?=$id;?>">
+					</div>
+				</div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Nivel:</label>
-                                    <div class="col-lg-9">
-                                        <select id="nivel" class="form-control" size="0"
-                                        required
-						                data-validation-required-message="Selecione o Nivel">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                        </select>
-                                    </div>
-                                    <script type="text/javascript">
-						            $("#nivel").val("<?=$nivel;?>");
-					                </script>
-                                </div>
+				<div class="control-group">
+					<label for="nome">
+					Nome do Usuário:</label>
+					<div class="controls">
+						<input type="text" 
+						name="nome"
+						class="form-control"
+						required
+						data-validation-required-message="Preencha o nome completo"
+						value="<?=$nome;?>">
+					</div>
+				</div>
 
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                                    <div class="col-lg-9"> 
-                                        <button type="submit" class="btn btn-primary">Salvar</button>
-                                    </div>
-                                </div>
-                            </form>
+				<div class="control-group">
+					<label for="email">
+					E-mail do Usuário:</label>
+					<div class="controls">
+						<input type="text" 
+						name="email"
+						class="form-control"
+						required
+						data-validation-required-message="Preencha o e-mail"
+						value="<?=$email;?>">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="login">
+					Login do Usuário:</label>
+					<div class="controls">
+						<input type="text" 
+						name="login" id="loginusuario"
+						class="form-control"
+						required onblur="verificaLogin(this.value)"
+						data-validation-required-message="Preencha o login"
+						value="<?=$login;?>">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="senha">
+					Senha:</label>
+					<div class="controls">
+						<input type="password" 
+						name="senha"
+						class="form-control"
+						<?php if ( empty ( $senha ) ) echo "required data-validation-required-message='Preencha a senha' "; ?>
+						
+						>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="senha">
+					Confirme a Senha:</label>
+					<div class="controls">
+						<input type="password" 
+						class="form-control"
+						data-validation-match-match="senha"
+						data-validation-match-message="As senhas digitadas são diferentes"
+						>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="ativo">
+					Ativo:</label>
+					<div class="controls">
+						<select	name="ativo" id="ativo"
+						class="form-control"
+						required
+						data-validation-required-message="Selecione o Ativo">
+							<option value=""></option>
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+						</select>
+					</div>
+					<script type="text/javascript">
+						$("#ativo").val("<?=$ativo;?>");
+					</script>
+                </div>
+                <br>
+
+				<button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
+
+
+			</fieldset>
+		</form>
                         </div>
 
                     </div>
