@@ -122,9 +122,6 @@
                 <li>
                     <a href="contatos">CONTATOS</a>
                 </li>
-                <li>
-                    <a href="listaFuncao">LF</a>
-                </li> 
             </ul>
 
             

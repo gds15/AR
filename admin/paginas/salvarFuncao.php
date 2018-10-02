@@ -1,4 +1,5 @@
 <?php
+	
 	if ( $_POST ) {
 
 		//recuperar os dados do formulário
@@ -52,7 +53,7 @@
 			//verificar se executou corretamente
 			if ( $consulta->execute() ) {
 
-				echo "<script>alert('Registro Salvo');location.href='listarfuncao.php';</script>";
+				echo "<script>alert('Registro Salvo');location.href='listaFuncao';</script>";
 
 			} else {
 

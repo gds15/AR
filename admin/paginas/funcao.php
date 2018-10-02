@@ -24,18 +24,16 @@ if ( isset ( $_GET["id"] ) ) {
 }
 ?>
 
-
-
 <div class="container py-1">
     <div class="row">
         <div class="mx-auto col-sm-12">
-                    <!-- form usuario -->
+                    <!-- form funcao -->
                     <div class="card">
                         <div class="card-header">
                             <h4 class="mb-0">Cadastro de Função</h4>
                         </div>
                         <div class="card-body">
-                            <form class="form" method="POST" action="salvarFuncao">
+                            <form name="formcadastro" class="form" method="POST" action="salvarFuncao" novalidate>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">ID:</label>
                                     <div class="col-lg-9">
@@ -54,7 +52,7 @@ if ( isset ( $_GET["id"] ) ) {
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-9"> 
-                                        <input type="button" class="btn btn-primary" value="Salvar">
+                                        <button type="submit" class="btn btn-primary">Salvar</button>
                                     </div>
                                 </div>
                             </form>

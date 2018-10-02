@@ -37,7 +37,7 @@
                             <h4 class="mb-0">Cadastro de Usuario</h4>
                         </div>
                         <div class="card-body">
-                            <form class="form" method="post" action="../back/salvarUsuario.php" role="form" autocomplete="off">
+                            <form name="formcadastro" class="form" method="" action="salvarUsuario" role="form" novalidate>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">ID:</label>
                                     <div class="col-lg-9">
@@ -114,7 +114,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-9"> 
-                                        <input type="button" class="btn btn-primary" value="Salvar">
+                                        <button type="submit" class="btn btn-primary">Salvar</button>
                                     </div>
                                 </div>
                             </form>
