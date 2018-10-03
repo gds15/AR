@@ -67,11 +67,11 @@
 					<td>$id</td>
 					<td>$funcao</td>
 					<td>
-						<a href='funcao.php?id=$id'
+						<a href='funcao?id=$id'
 						class='btn btn-outline-primary'>
-							<i class='fa fa-pencil'></i>
+							<i class='fas fa-pen-square'></i>
 						</a>
-
+						
 					<a href='javascript:deletar($id)' 
 						class='btn btn-outline-danger'>
 							<i class='fa fa-trash'></i>
@@ -91,13 +91,12 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirfuncao.php?id="+id;
+				location.href = "excluirFuncao?id="+id;
 			}
 		}
 	</script>
 
-</body>
-</html>
+
 
 
 

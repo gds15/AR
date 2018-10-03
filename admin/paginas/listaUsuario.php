@@ -60,9 +60,9 @@
 						<td>$ativo</td>
 						<td>$nivel</td>
 						<td>
-						<a href='admin.php?id=$id'
+						<a href='usuario?id=$id'
 						class='btn btn-outline-primary'>
-							<i class='fa fa-pencil'></i>
+							<i class='fas fa-pen-square'></i>
 						</a>
 						<a href='javascript:deletar($id)' 
 						class='btn btn-outline-danger'>
@@ -79,3 +79,25 @@
 	
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		//funcao para perguntar se quer deletar
+		function deletar(id) {
+			if ( confirm("Deseja mesmo excluir?") ) {
+				//enviar o id para uma página
+				location.href = "excluirUsuario?id="+id;
+			}
+		}
+
+		$(document).ready( function(){
+		//aplicar o dataTable na tabela
+		$(".table").dataTable({
+			"language": {
+				"lengthMenu": "Mostrando _MENU_ registros por página", "zeroRecords": "Nenhum dado encontrado - sorry",
+				"info": "Mostrando _PAGE_ de _PAGES_", "infoEmpty": "Nenhum dado", "infoFiltred": "(filtrado de _MAX_ total)", "search": "Buscar: ", "paginate": {
+					"previous": "Anterior", "next": "Próxima"
+				}
+			}
+		});
+	})
+	</script>

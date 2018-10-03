@@ -210,6 +210,11 @@
     <!-- maskMoney -->
     <script type="text/javascript" src="../js/jquery.maskMoney.min.js"></script>
 
+    <script type="text/javascript"
+  src="../js/summernote.min.js"></script>
+  <script type="text/javascript"
+  src="../lang/summernote-pt-BR.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
