@@ -30,7 +30,7 @@
 				
 
 				<div class="col-12 user-img">
-					<img src="../img/face.png">
+					<img src="../img/logo.png">
 				</div>
 
 				<form class="col-12" name="login" method="post" action="verifica.php" novalidate>
