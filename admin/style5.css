@@ -19,7 +19,7 @@ p {
 a,
 a:hover,
 a:focus {
-    color: inherit;
+    color: #f05f40;
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -61,7 +61,7 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #4169E1;
+    background: #f5f5f5;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
@@ -74,7 +74,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #4169E1;
+    background: #f5f5f5;
 }
 
 #sidebar ul.components {
@@ -83,7 +83,7 @@ a:focus {
 }
 
 #sidebar ul p {
-    color: #fff;
+    color: #000000;
     padding: 10px;
 }
 
@@ -94,14 +94,14 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #000000;
     background: #fff;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #4169E1;
+    color: #000000;
+    background: white;
 }
 
 a[data-toggle="collapse"] {
@@ -119,7 +119,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #4169E1;
+    background: #f5f5f5;
 }
 
 ul.CTAs {
@@ -185,6 +185,10 @@ a.article:hover {
     transform: none;
     opacity: 1;
     margin: 5px auto;
+}
+
+h3 {
+    color: #000000;
 }
 
 
