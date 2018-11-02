@@ -40,7 +40,7 @@
 						required data-validation-required-message="Preencha o login">
 					</div>
 					<div class="form-group">
-						<input type="password " name="senha" class="form-control" placeholder="Senha"
+						<input type="password" name="senha" class="form-control" placeholder="Senha"
 						required data-validation-required-message="Preencha sua senha">
 					</div>
 

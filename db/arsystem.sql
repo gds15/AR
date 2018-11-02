@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 27-Set-2018 às 19:45
+-- Generation Time: 02-Nov-2018 às 06:15
 -- Versão do servidor: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -31,18 +31,14 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `culto`;
 CREATE TABLE IF NOT EXISTS `culto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `culto` varchar(45) NOT NULL,
+  `responsavel` int(11) NOT NULL,
+  `data` varchar(10) NOT NULL,
+  `hora` varchar(5) NOT NULL,
+  `local` varchar(45) NOT NULL,
+  `tipo` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `categoria_UNIQUE` (`culto`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `culto`
---
-
-INSERT INTO `culto` (`id`, `culto`) VALUES
-(1, 'teste'),
-(9, 'teste2');
+  KEY `fk2_idx` (`responsavel`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -188,6 +184,22 @@ CREATE TABLE IF NOT EXISTS `video` (
   `ativo` enum('Sim','Não') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `culto`
+--
+ALTER TABLE `culto`
+  ADD CONSTRAINT `fk2` FOREIGN KEY (`responsavel`) REFERENCES `membro` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `membro`
+--
+ALTER TABLE `membro`
+  ADD CONSTRAINT `fk1` FOREIGN KEY (`funcao_id`) REFERENCES `funcao` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

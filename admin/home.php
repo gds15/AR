@@ -9,17 +9,6 @@
 
 	//incluir o arquivo para conectar no banco
 	include "../config/conecta.php";
-
-  //funcao para formatar o valor
-  function formatarvalor($valor) {
-    $valor = str_replace( ".", "", $valor);
-    //busca - valor para substituir - variavel
-    
-    $valor = str_replace( ",", ".", $valor);
-    
-    //retornar um valor
-    return $valor;
-  }
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +27,8 @@
     <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
     <!--  CSS do menu -->
     <link rel="stylesheet" href="style5.css">
+    <!--datepicker-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -201,6 +192,9 @@
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--datepicker-->
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
     <!-- Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
@@ -221,6 +215,17 @@
                 $('#sidebar').toggleClass('active');
                 $(this).toggleClass('active');
             });
+        });
+
+        $(function() {
+            $("#calendario").datepicker({dateFormat: 'dd-mm-yy',
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],showOn: "button",
+            buttonImage: "../img/calendario.png",
+            buttonImageOnly: true});
         });
     </script>
 </body>
