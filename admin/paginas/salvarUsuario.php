@@ -95,7 +95,7 @@
 			//verificar se executou corretamente
 			if ( $consulta->execute() ) {
 
-				echo "<script>alert('Registro Salvo');location.href='listarUsuario.php';</script>";
+				echo "<script>alert('Registro Salvo');location.href='listaUsuario';</script>";
 
 			} else {
 

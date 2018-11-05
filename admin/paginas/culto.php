@@ -1,3 +1,31 @@
+<?php
+
+	$id = $responsavel = $data = $hora = $local = $tipo = "";
+
+	//verificar se está editando
+	if ( isset ( $_GET["id"] ) ) {
+
+		//recuperar o id por get
+		$id = trim( $_GET["id"] );
+		//selecionar os dados do banco
+		$sql = "select * from culto where id = ? limit 1";
+		//prepare
+		$consulta = $pdo->prepare( $sql );
+		//passar um parametro
+		$consulta->bindParam( 1, $id );
+		//executa
+		$consulta->execute();
+		//separar os dados
+		$dados = $consulta->fetch(PDO::FETCH_OBJ);
+
+		$id          = $dados->id;
+		$responsavel = $dados->responsavel;
+		$data        = $dados->data;
+		$hora        = $dados->hora;
+		$local       = $dados->local;
+		$tipo        = $dados->tipo;
+	}
+?>
 <div class="container py-1">
     <div class="row">
         <div class="mx-auto col-sm-12">
@@ -58,7 +86,7 @@
 								    <div class="control-group">
 								    <label for="calendario">Data:</label>
 								    <div class="controls">
-								    	<input type="text" class="form-control col-sm-3" id="calendario" />
+								    	<input type="text" class="form-control col-sm-3" id="calendario">
 								    </div>	
 								    </div>
 
@@ -67,7 +95,6 @@
 										<div class="controls">
 											<input type="text" name="hora"
 											class="form-control col-sm-3" id="hora"
-											readonly
 											value="<?=$hora;?>">
 										</div>
 									</div>
@@ -77,7 +104,6 @@
 										<div class="controls">
 											<input type="text" name="local"
 											class="form-control" id="local"
-											readonly
 											value="<?=$local;?>">
 										</div>
 									</div>

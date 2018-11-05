@@ -62,7 +62,7 @@
 
 		if( $consulta->execute() ) {
 
-			echo "<script>alert('Membro Salvo Com Sucesso'); location.href='listarMembro.php'</script>";
+			echo "<script>alert('Membro Salvo Com Sucesso'); location.href='listaMembros'</script>";
 
 		} else {
 

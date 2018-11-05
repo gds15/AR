@@ -84,7 +84,7 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">RELATÓRIOS</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="membros">Membros</a>
+                            <a href="rCultos">Cultos</a>
                         </li>
                         <li>
                             <a href="dizimos">Dizimos</a>
@@ -105,14 +105,11 @@
                         </li>
                         <li>
                             <a href="listaMembros">Membros</a>
+                        </li>
+                        <li>
+                            <a href="listaCulto">Cultos/Eventos</a>
                         </li>                      
                     </ul>
-                </li>
-                <li>
-                    <a href="pdOracoes">PEDIDOS DE ORAÇÔES</a>
-                </li>
-                <li>
-                    <a href="contatos">CONTATOS</a>
                 </li>
             </ul>
 
