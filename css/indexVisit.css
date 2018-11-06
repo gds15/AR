@@ -37,6 +37,11 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
+.card {
+  padding: 5px;
+  margin: 10px;
+}
+
 .bg-primary {
   background-color: #F05F40 !important;
 }

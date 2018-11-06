@@ -1,3 +1,6 @@
+<?php
+  include "config/conecta.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -33,13 +36,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#page-top">HOME</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#sobre">Sobre</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#teste2">Teste2</a>
+              <a class="nav-link js-scroll-trigger" href="#eventos">Eventos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#teste">Teste</a>
+              <a class="nav-link js-scroll-trigger" href="#midias">Midias</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contato">Contato</a>
@@ -87,12 +93,56 @@
       </div>
     </section>
 
-    <section id="teste2">
+    <section id="eventos">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Outro teste para ver se combina o branco e preto</h2>
+            <h2 class="section-heading">Cultos/Eventos</h2>
             <hr class="my-4">
+
+            <p class="mb-5">Nossos Ultimos Eventos!!!</p>
+
+            <div class="container row">
+              <?php
+
+              $sql = "SELECT * FROM culto  ORDER BY id DESC LIMIT 6";
+              $consulta = $pdo->prepare($sql);
+              $consulta->execute();
+
+              while ( $dados = $consulta->fetch(PDO::FETCH_OBJ)) {
+
+                $id = $dados->id;
+                $data = $dados->data;
+                $hora = $dados->hora;
+                $local = $dados->local;
+                $tipo = $dados->tipo;
+
+                ?>
+
+                  <div class="card" style="width: 18rem;">
+                  <div class="card-header">
+                   <h3>TIPO: <?=$tipo;?></h3>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Data: <?=$data;?></li>
+                  <li class="list-group-item">Hora: <?=$hora;?></li>
+                  <li class="list-group-item">Local: <?=$local;?></li>
+                  </ul>
+                  </div>
+
+             
+                  <?php
+                    }
+                  ?>
+
+              </div>
+
+
+           
+        
+ 
+
+
           </div>
         </div>
       </div>
@@ -101,7 +151,7 @@
 
     
 
-    <section class="bg-dark text-white" id="teste">
+    <section class="bg-dark text-white" id="midias">
       <div class="container text-center">
         <h2 class="mb-4">Teste para ver como fica!</h2>
         <a class="btn btn-light btn-xl sr-button" href="#page-top">topo!</a>
