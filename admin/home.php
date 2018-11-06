@@ -111,9 +111,19 @@
                         </li>                      
                     </ul>
                 </li>
-            </ul>
+                <li>
+                    <a href="#submenupro" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Processos</a>
+                    <ul class="collapse list-unstyled" id="submenupro">
+                        <li>
+                            <a href="dizimo">Dizimos</a>
+                        </li>
+                        <li>
+                            <a href="contas">A pagar</a>
+                        </li>                      
+                    </ul>
+                </li>
 
-            
+            </ul>
         </nav>
 
         <!-- parte de cima do menu -->
