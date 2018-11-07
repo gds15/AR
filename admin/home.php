@@ -9,6 +9,14 @@
 
 	//incluir o arquivo para conectar no banco
 	include "../config/conecta.php";
+
+    //funcao para formatar datas
+      function formatardata($data) {
+        // 29/09/2017 -> 2017-09-29
+        $data = explode( "-", $data );
+        $data = $data[2]."-".$data[1]."-".$data[0];
+        return $data;
+      }
 ?>
 
 <!DOCTYPE html>
@@ -219,6 +227,9 @@
     <script src="../js/dataTables.bootstrap4.min.js"></script>
     <!-- maskMoney -->
     <script type="text/javascript" src="../js/jquery.maskMoney.min.js"></script>
+
+    <script type="text/javascript" src="../js/bootstrap-inputmask.min.js"></script>
+   
 
     <script type="text/javascript"
   src="../js/summernote.min.js"></script>

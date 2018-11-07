@@ -2,13 +2,15 @@
 
 	if ( $_POST ) {
 
-		print_r( $_POST );
+		//print_r( $_POST );
 		$id          = trim( $_POST["id"] );
 		$responsavel = trim( $_POST["responsavel"] );
 		$data        = trim( $_POST["data"] );
 		$hora        = trim( $_POST["hora"] );
 		$local       = trim( $_POST["local"] );
 		$tipo        = trim( $_POST["tipo"] );
+
+		$data = formatardata( $data );
 
 
 		//verificar se o campo esta em branco
@@ -31,22 +33,23 @@
 
 			//verificar se existe culto nessa hora
 			$sql = "select * from culto
-			where hora = ? and id <> ? limit 1";
+			where hora = ? and data = ? limit 1";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $hora);
-			$consulta->bindParam(2, $id);
+			$consulta->bindParam(2, $data);
 			$consulta->execute();
 			$dados = $consulta->fetch(PDO::FETCH_OBJ);
 
 			if ( !empty( $dados->id ) ) {
 				//já existe um registro cadastrado
-				echo "<script>alert('Já existe um evento para esse horario');history.back();</script>";
+				echo "<script>alert('Já existe um evento para esse horario e data');history.back();</script>";
 				exit;
 
 			}
 
 			//verificar se o id esta vazio - insert
 			if ( empty ( $id ) ) {
+
 				//gravar no banco de dados
 				$sql = "insert into culto (id, responsavel, data, hora, local, tipo)
 				values (NULL, ? , ?, ?, ?, ? )";

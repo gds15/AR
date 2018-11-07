@@ -1,12 +1,13 @@
 <?php
 
 	$id = $responsavel = $data = $hora = $local = $tipo = "";
+	$data = date("d/m/Y");
 
 	//verificar se está editando
-	if ( isset ( $_GET["id"] ) ) {
+	if ( isset ($parametro[1] ) ) {
 
 		//recuperar o id por get
-		$id = trim( $_GET["id"] );
+		$id = trim( $parametro[1] );
 		//selecionar os dados do banco
 		$sql = "select * from culto where id = ? limit 1";
 		//prepare
@@ -20,10 +21,10 @@
 
 		$id          = $dados->id;
 		$responsavel = $dados->responsavel;
-		$data        = $dados->data;
+		$data        = $dados->dt;
 		$hora        = $dados->hora;
 		$local       = $dados->local;
-		$tipo        = $dados->tipo;
+		$tipo_id        = $dados->tipo_id;
 	}
 ?>
 <div class="container py-1">
@@ -95,6 +96,7 @@
 										<div class="controls">
 											<input type="text" name="hora"
 											class="form-control col-sm-3" id="hora"
+											data-mask="99:99"
 											value="<?=$hora;?>">
 										</div>
 									</div>
@@ -109,18 +111,38 @@
 									</div>
 
 									<div class="control-group">
-										<label for="tipo">Tipo:</label>
-										<div class="controls">
-											<select	name="tipo"
-												class="form-control"
-												required>
-												<option value="">Selecione o Tipo</option>
-												<option value="culto">culto</option>
-												<option value="evento">evento</option>
-												<option value="casamento">casamento</option>
-												</select>
-										</div>
+									<label for="tipo">
+									Tipo Evento:
+									</label>
+									<div class="controls">
+										<select name="tipo"
+										class="form-control"
+										required id="tipo"
+										data-validation-required-message="Selecione o Tipo">
+											<option value="">Selecione o Tipo</option>
+											<?php
+											//selecionar todas as classes
+											$sql = "select * from tipoevento where ativo = 's'
+												order by tipo";
+											//preparar o sql
+											$consulta = $pdo->prepare($sql);
+											//executar o sql
+											$consulta->execute();
+											//laço para pegar registro por registro
+											while ($dados = $consulta->fetch(PDO::FETCH_OBJ)) {
+												//separar os dados
+												$id = $dados->id;
+												$tipo = $dados->tipo;
+												echo "<option value='$id'>
+												$tipo</option>";
+											}
+											?>
+										</select>
+										<script type="text/javascript">
+											$("#tipo").val('<?=$tipo;?>');
+										</script>
 									</div>
+								    </div>
 	
 								    <br>
 									<button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
