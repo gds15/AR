@@ -32,7 +32,7 @@
 			$palavra = "%$palavra%";
 
 			//buscar da funcao
-			$sql = "select * from culto where tipo like ? order by data";
+			$sql = "select * from culto where tipo like ? order by id desc ";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $palavra);
 			//executar o sql

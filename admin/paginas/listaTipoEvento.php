@@ -1,10 +1,10 @@
 
 	<div class="well container">
 			<ol class="breadcrumb">
-         		<li class="breadcrumb-item active">Lista de Funções</li>
+         		<li class="breadcrumb-item active">Lista de Tipo de Eventos</li>
        	 	</ol>
 
-		<a href="funcao" title="Cadastro de admin" class="btn btn-outline-success pull-right">
+		<a href="tipoEvento" title="Cadastro de admin" class="btn btn-outline-success pull-right">
 			<i class="fa fa-file"></i>
 			Novo Cadastro
 		</a>
@@ -32,7 +32,7 @@
 			$palavra = "%$palavra%";
 
 			//buscar da funcao
-			$sql = "select * from funcao where funcao like ? and ativo = 's' order by funcao";
+			$sql = "select * from tipoevento where tipo like ? and ativo = 's' order by tipo";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $palavra);
 			//executar o sql
@@ -51,7 +51,7 @@
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
-					<td>Função</td>
+					<td>tipo</td>
 					<td width="15%">Opções</td>
 				</tr>
 			</thead>
@@ -61,13 +61,13 @@
 
 				//separar os dados do banco de dados
 				$id = $dados->id;
-				$funcao = $dados->funcao;
+				$tipo = $dados->tipo;
 
 				echo "<tr>
 					<td>$id</td>
-					<td>$funcao</td>
+					<td>$tipo</td>
 					<td>
-						<a href='funcao/$id'
+						<a href='tipoEvento/$id'
 						class='btn btn-outline-primary'>
 							<i class='fas fa-pen-square'></i>
 						</a>
@@ -91,7 +91,7 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirFuncao/"+id;
+				location.href = "excluirtipoEvento/"+id;
 			}
 		}
 	</script>

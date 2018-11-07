@@ -86,7 +86,7 @@
 								    <div class="control-group">
 								    <label for="calendario">Data:</label>
 								    <div class="controls">
-								    	<input type="text" class="form-control col-sm-3" id="calendario">
+								    	<input type="text" name="data" class="form-control col-sm-3" id="calendario">
 								    </div>	
 								    </div>
 

@@ -90,7 +90,7 @@
 						</option>
 						<?php
 						//selecionar as funcaos
-						$sql = "select * from funcao order by funcao";
+						$sql = "select * from funcao where ativo = 's' order by funcao";
 						//preparar o sql e executar
 						$consulta = $pdo->prepare($sql);
 						$consulta->execute();

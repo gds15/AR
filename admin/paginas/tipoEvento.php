@@ -1,6 +1,6 @@
 <?php
 
-$id = $funcao = "";
+$id = $tipo = "";
 
 //verificar se está editando
 if ( isset ($parametro[1] ) ) {
@@ -8,7 +8,7 @@ if ( isset ($parametro[1] ) ) {
     //recuperar o id por get
     $id = trim( $parametro[1] );
     //selecionar os dados do banco
-    $sql = "select * from funcao where id = ? limit 1";
+    $sql = "select * from tipoevento where id = ? limit 1";
     //prepare
     $consulta = $pdo->prepare( $sql );
     //passar um parametro
@@ -19,7 +19,7 @@ if ( isset ($parametro[1] ) ) {
     $dados = $consulta->fetch(PDO::FETCH_OBJ);
 
     $id = $dados->id;
-    $funcao = $dados->funcao;
+    $tipo = $dados->tipo;
 
 }
 ?>
@@ -33,7 +33,7 @@ if ( isset ($parametro[1] ) ) {
                             <h4 class="mb-0">Cadastro de Função</h4>
                         </div>
                         <div class="card-body">
-                        <form name="formcadastro" method="post" action="salvarFuncao" novalidate>
+                        <form name="formcadastro" method="post" action="salvarTipoEvento" novalidate>
                             <fieldset>
                                 <legend>Preencha os campos:</legend>
 
@@ -48,15 +48,15 @@ if ( isset ($parametro[1] ) ) {
                                 </div>
 
                                 <div class="control-group">
-                                    <label for="funcao">
-                                    Função:</label>
+                                    <label for="tipo">
+                                    Tipo Evento:</label>
                                     <div class="controls">
                                         <input type="text" 
-                                        name="funcao"
+                                        name="tipo"
                                         class="form-control"
                                         required
-                                        data-validation-required-message="Preencha a funcao"
-                                        value="<?=$funcao;?>">
+                                        data-validation-required-message="Preencha o tipo"
+                                        value="<?=$tipo;?>">
                                     </div>
                                 </div>
                                 <br>

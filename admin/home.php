@@ -20,6 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>PAINEL ADM</title>
+    <base href="http://localhost/AR/admin/">
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -78,6 +79,9 @@
                         <li>
                             <a href="fotos">Fotos</a>
                         </li>
+                        <li>
+                            <a href="tipoEvento">Tipo Eventos</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -108,6 +112,9 @@
                         </li>
                         <li>
                             <a href="listaCulto">Cultos/Eventos</a>
+                        </li>
+                        <li>
+                            <a href="listaTipoEvento">Tipos de Eventos</a>
                         </li>                      
                     </ul>
                 </li>
@@ -160,6 +167,8 @@
 			//recuperar o parametro p
 			if ( isset ( $_GET["p"] ) ){
 				$p = $_GET["p"];
+                $parametro = explode("/", $p);
+                $p = $parametro[0];
 				//mostrar o conteudo
 				//echo $p;
 
