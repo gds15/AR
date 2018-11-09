@@ -1,3 +1,31 @@
+<?php
+
+	$id = $data = $descricao = $valor = $valorPago = $multaJuros =  "";
+	$data = date("d/m/Y");
+
+	//verificar se está editando
+	if ( isset ($parametro[1] ) ) {
+
+		//recuperar o id por get
+		$id = trim( $parametro[1] );
+		//selecionar os dados do banco
+		$sql = "select id, date_format(data, '%d-%m-%Y') data, valor, valorPago, multaJuros from conta where id = ? limit 1";
+		//prepare
+		$consulta = $pdo->prepare( $sql );
+		//passar um parametro
+		$consulta->bindParam( 1, $id );
+		//executa
+		$consulta->execute();
+		//separar os dados
+		$dados = $consulta->fetch(PDO::FETCH_OBJ);
+
+		$id          = $dados->id;
+		$data        = $dados->data;
+		$valor       = $dados->valor;
+		$valorPago   = $dados->valorPago;
+		$multaJuros  = $dados->multaJuros;
+	}
+?>
 <div class="container py-1">
     <div class="row">
         <div class="mx-auto col-sm-12">
@@ -26,14 +54,7 @@
 								    <div class="control-group">
 								    <label for="calendario">Data Vencimento:</label>
 								    <div class="controls">
-								    	<input type="text" class="form-control col-sm-3" id="calendario">
-								    </div>	
-								    </div>
-
-								     <div class="control-group">
-								    <label for="calendario">Data Pagamento:</label>
-								    <div class="controls">
-								    	<input type="text" class="form-control col-sm-3" id="calendario">
+								    	<input type="text" name="data" class="form-control col-sm-3" id="calendario" value="<?=$data;?>">
 								    </div>	
 								    </div>
 
@@ -56,7 +77,7 @@
 									</div>
 
 									<div class="control-group">
-										<label for="valor pago">Valor Pago:</label>
+										<label for="valor pago">ValorPago:</label>
 										<div class="controls">
 											<input type="text" name="valor pago"
 											class="form-control" id="valor pago"

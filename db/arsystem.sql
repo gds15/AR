@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 02-Nov-2018 às 06:15
+-- Generation Time: 09-Nov-2018 às 02:08
 -- Versão do servidor: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -25,6 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `conta`
+--
+
+DROP TABLE IF EXISTS `conta`;
+CREATE TABLE IF NOT EXISTS `conta` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data` date DEFAULT NULL,
+  `descricao` int(11) DEFAULT NULL,
+  `valor` varchar(45) DEFAULT NULL,
+  `valorPago` varchar(45) DEFAULT NULL,
+  `multaJuros` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `culto`
 --
 
@@ -32,13 +49,23 @@ DROP TABLE IF EXISTS `culto`;
 CREATE TABLE IF NOT EXISTS `culto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `responsavel` int(11) NOT NULL,
-  `data` varchar(10) NOT NULL,
+  `data` date NOT NULL,
   `hora` varchar(5) NOT NULL,
   `local` varchar(45) NOT NULL,
-  `tipo` varchar(45) NOT NULL,
+  `tipo` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk2_idx` (`responsavel`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `fk5_idx` (`responsavel`),
+  KEY `fk6_idx` (`tipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `culto`
+--
+
+INSERT INTO `culto` (`id`, `responsavel`, `data`, `hora`, `local`, `tipo`) VALUES
+(1, 3, '2018-11-07', '19:00', 'umuarama', 2),
+(2, 3, '2018-11-07', '19:30', 'Perobal', 2),
+(4, 3, '2018-11-09', '22:00', 'umuarama', 3);
 
 -- --------------------------------------------------------
 
@@ -66,24 +93,26 @@ DROP TABLE IF EXISTS `funcao`;
 CREATE TABLE IF NOT EXISTS `funcao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `funcao` varchar(45) NOT NULL,
+  `ativo` varchar(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `categoria_UNIQUE` (`funcao`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `funcao`
 --
 
-INSERT INTO `funcao` (`id`, `funcao`) VALUES
-(1, 'Cooperador'),
-(2, 'Diácono'),
-(4, 'Evangelista'),
-(9, 'Músico'),
-(5, 'Pastor'),
-(6, 'Pastor Presidente'),
-(3, 'Presbítero'),
-(7, 'Secretário'),
-(8, 'Tesoureiro');
+INSERT INTO `funcao` (`id`, `funcao`, `ativo`) VALUES
+(1, 'Cooperador', 's'),
+(2, 'Diácono', 's'),
+(3, 'Presbítero', 's'),
+(4, 'Evangelista', 's'),
+(5, 'Pastor', 's'),
+(6, 'Pastor Presidente', 's'),
+(7, 'Secretário', 's'),
+(8, 'Tesoureiro', 's'),
+(9, 'Músico', 's'),
+(11, 'nada 1', 'n');
 
 -- --------------------------------------------------------
 
@@ -141,6 +170,31 @@ INSERT INTO `oferta` (`id`, `titulo`, `ativo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tipoevento`
+--
+
+DROP TABLE IF EXISTS `tipoevento`;
+CREATE TABLE IF NOT EXISTS `tipoevento` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(45) NOT NULL,
+  `ativo` varchar(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tipoevento`
+--
+
+INSERT INTO `tipoevento` (`id`, `tipo`, `ativo`) VALUES
+(1, 'festa 1', 'n'),
+(2, 'culto', 's'),
+(3, 'casamento', 's'),
+(4, 'festa', 's'),
+(5, 'evento', 's');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuario`
 --
 
@@ -193,7 +247,8 @@ CREATE TABLE IF NOT EXISTS `video` (
 -- Limitadores para a tabela `culto`
 --
 ALTER TABLE `culto`
-  ADD CONSTRAINT `fk2` FOREIGN KEY (`responsavel`) REFERENCES `membro` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk5` FOREIGN KEY (`responsavel`) REFERENCES `membro` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk6` FOREIGN KEY (`tipo`) REFERENCES `tipoevento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `membro`

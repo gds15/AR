@@ -60,6 +60,11 @@
 
 <body>
 
+    <div id="mascara">
+        <img src="../img/load.gif">
+        Aguarde...
+    </div>
+
     <div class="wrapper">
         <!-- Parte lateral do menu -->
         <nav id="sidebar">
@@ -253,6 +258,9 @@
             monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],showOn: "button",
             buttonImage: "../img/calendario.png",
             buttonImageOnly: true});
+        });
+        $("#mascara").fadeOut("slow", function(){
+        $("#mascara").hide();
         });
     </script>
 </body>
