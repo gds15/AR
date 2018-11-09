@@ -133,7 +133,7 @@
                             <a href="dizimo">Dizimos</a>
                         </li>
                         <li>
-                            <a href="contas">A pagar</a>
+                            <a href="contas">Contas</a>
                         </li>                      
                     </ul>
                 </li>

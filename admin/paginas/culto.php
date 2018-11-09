@@ -9,7 +9,7 @@
 		//recuperar o id por get
 		$id = trim( $parametro[1] );
 		//selecionar os dados do banco
-		$sql = "select * from culto where id = ? limit 1";
+		$sql = "select id, responsavel, date_format(data, '%d-%m-%Y') data, hora, local, tipo from culto where id = ? limit 1";
 		//prepare
 		$consulta = $pdo->prepare( $sql );
 		//passar um parametro
@@ -21,10 +21,10 @@
 
 		$id          = $dados->id;
 		$responsavel = $dados->responsavel;
-		$data        = $dados->dt;
+		$data        = $dados->data;
 		$hora        = $dados->hora;
 		$local       = $dados->local;
-		$tipo_id        = $dados->tipo_id;
+		$tipo        = $dados->tipo;
 	}
 ?>
 <div class="container py-1">
@@ -59,7 +59,7 @@
 										class="form-control"
 										required id="responsavel"
 										data-validation-required-message="Selecione o Responsavel">
-											<option value="">Selecione o Responsavel</option>
+											<option value="<?=$responsavel;?>">Selecione o Responsavel</option>
 											<?php
 											//selecionar todas as classes
 											$sql = "select * from membro
@@ -87,7 +87,7 @@
 								    <div class="control-group">
 								    <label for="calendario">Data:</label>
 								    <div class="controls">
-								    	<input type="text" name="data" class="form-control col-sm-3" id="calendario">
+								    	<input type="text" name="data" class="form-control col-sm-3" id="calendario" value="<?=$data;?>">
 								    </div>	
 								    </div>
 
@@ -119,7 +119,7 @@
 										class="form-control"
 										required id="tipo"
 										data-validation-required-message="Selecione o Tipo">
-											<option value="">Selecione o Tipo</option>
+											<option value="<?=$tipo;?>">Selecione o Tipo</option>
 											<?php
 											//selecionar todas as classes
 											$sql = "select * from tipoevento where ativo = 's'

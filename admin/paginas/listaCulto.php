@@ -32,7 +32,10 @@
 			$palavra = "%$palavra%";
 
 			//buscar da funcao
-			$sql = "select * from culto where tipo like ? order by id desc ";
+			$sql = "select c.id, m.nome, date_format(c.data, '%d-%m-%Y') data, c.hora, c.local, t.tipo from 
+			culto c inner join membro m on (c.responsavel = m.id) inner join tipoevento t on (c.tipo = t.id) ";
+
+
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $palavra);
 			//executar o sql
@@ -67,7 +70,7 @@
 				$id          = $dados->id;
 				$responsavel = $dados->responsavel;
 				$data        = $dados->data;
-				$hora       = $dados->hora;
+				$hora        = $dados->hora;
 				$local       = $dados->local;
 				$tipo        = $dados->tipo;
 
@@ -79,7 +82,7 @@
 					<td>$local</td>
 					<td>$tipo</td>
 					<td>
-						<a href='culto?id=$id'
+						<a href='culto/$id'
 						class='btn btn-outline-primary'>
 							<i class='fas fa-pen-square'></i>
 						</a>
@@ -103,7 +106,7 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirCulto?id="+id;
+				location.href = "excluirCulto/"+id;
 			}
 		}
 	</script>
