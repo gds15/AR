@@ -28,10 +28,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>PAINEL ADM</title>
+    <!-- para funcionar a parte da edicao etc-->
     <base href="http://localhost/AR/admin/">
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <!-- Datatables CSS -->
     <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
     <!--  CSS do menu -->
@@ -217,6 +218,35 @@
         </div>
     </div>
 
+
+
+    <!-- Modal contas -->
+<div class="modal fade" id="ajuda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Ajuda Contas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Aqui você pode cadastrar tanto contas ja pagas como contasque ainda ira pagar.
+        Para cadastrar uma conta já paga e simples basta informar a data do vencimento, 
+        a descrição o valor da conta e o valor pago, ja o multa/juros e so preenchido 
+        se a conta foi paga com atraso pois usamos essa informação para gerar o relatorio ,
+        de contas pagas com atraso ou em dia.
+        Já no cadastro de contas que ainda esta para vencer e simples também basta informar
+        a data do vencimento, o valor e a descrição e salvar, na home sera mostradas as contas
+        que ira vencer por primeiro. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     
 
     <!-- jQuery CDN -->
@@ -225,9 +255,9 @@
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
     <!-- Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- DataTables JS -->
     <script src="../js/dataTables.bootstrap4.min.js"></script>
     <!-- maskMoney -->

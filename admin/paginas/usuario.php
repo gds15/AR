@@ -1,11 +1,11 @@
 <?php
     $id = $email = $nome = $login = $ativo = $nivel = "";
 
-	//verificar se está editando
-	if ( isset ( $_GET["id"] ) ) {
+    //verificar se está editando
+	if ( isset ($parametro[1] ) ) {
 
-		//recuperar o id por get
-		$id = trim( $_GET["id"] );
+		//recuperar o id 
+		$id = trim( $parametro[1] );
 		//selecionar os dados do banco
 		$sql = "select * from usuario where id = ? limit 1";
 		//prepare
@@ -17,13 +17,12 @@
 		//separar os dados
 		$dados = $consulta->fetch(PDO::FETCH_OBJ);
 
-		$id = $dados->id;
+		$id    = $dados->id;
 		$email = $dados->email;
-		$nome = $dados->nome;
+		$nome  = $dados->nome;
 		$login = $dados->login;
 		$ativo = $dados->ativo;
-
-
+		$nivel = $dados->nivel;
 	}
 ?>
 
@@ -105,7 +104,7 @@
 
 				<div class="control-group">
 					<label for="senha">
-					Confirme a Senha:</label>
+					Re-digite a Senha:</label>
 					<div class="controls">
 						<input type="password" 
 						class="form-control"
@@ -131,20 +130,72 @@
 					<script type="text/javascript">
 						$("#ativo").val("<?=$ativo;?>");
 					</script>
-                </div>
+				</div>
+
+				<div class="control-group">
+					<label for="nivel">
+					Nivel do Usuario:</label>
+					<div class="controls">
+						<select	name="nivel" id="nivel"
+						class="form-control"
+						required
+						data-validation-required-message="Selecione o Nivel">
+							<option value=""></option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+						</select>
+					</div>
+					<script type="text/javascript">
+						$("#nivel").val("<?=$nivel;?>");
+					</script>
+				</div>
+
+
                 <br>
 
 				<button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
 
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+				  Launch demo modal
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+				        
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+
 
 			</fieldset>
 		</form>
-                        </div>
-
-                    </div>
-                    <!-- /form user info -->
+             	</div>
+            </div>
         </div>
     </div>
+
+
 
     <script type="text/javascript">
 		//funcao para verificar a data
@@ -156,7 +207,7 @@
 
 			if ( login != "") {
 				//ajax
-				$.get("login.php",
+				$.get("login",
 					{login:login,id:id},
 					function(dados){
 
