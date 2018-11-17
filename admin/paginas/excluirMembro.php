@@ -7,9 +7,8 @@
 		$id = trim ( $_GET["id"] );
 	}
 
-	//verificar se existe um filme com esta categoria
-	$sql = "select * from membro where membro_id = ? limit 1";
-
+	//verificar se existe um culto com esse responsavel
+	$sql = "select * from culto  where responsavel = ? limit 1";
 	$consulta = $pdo->prepare($sql);
 	$consulta->bindParam(1, $id);
 	$consulta->execute();
@@ -19,7 +18,6 @@
 	//verificar se trouxe o registro
 	if ( empty($dados->id) ) {
 		//excluir
-
 		$sql = "delete from membro where id = ? limit 1";
 		$consulta = $pdo->prepare($sql);
 		$consulta->bindParam(1, $id);
@@ -29,7 +27,7 @@
 			echo "<script>location.href='listaMembros';</script>";
 		} else {
 			//deu erro avisar
-			echo "<script>alert('Erro ao excluir registro !');history.back();</script>";
+			echo "<script>alert('Erro ao excluir registro ou esse membro é responsavel por algum evento !');history.back();</script>";
 		}
 
 	} 

@@ -62,6 +62,11 @@ if ( isset ($parametro[1] ) ) {
                                 <br>
                                 
                                 <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajudaFuncao">
+                                  AJUDA!!!
+                                </button>
                                
 
                             </fieldset>

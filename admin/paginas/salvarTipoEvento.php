@@ -1,10 +1,10 @@
 <?php
-	
+
 	if ( $_POST ) {
 
 		//recuperar os dados do formulário
 		//print_r( $_POST );
-		$id = trim( $_POST["id"] );
+		$id   = trim( $_POST["id"] );
 		$tipo = trim( $_POST["tipo"] );
 
 		//verificar se o campo esta em branco
@@ -19,12 +19,11 @@
 			and id <> ? limit 1";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $tipo);
-			$consulta->bindParam(2, $ativo);
-			$consulta->bindParam(3, $id);
+			$consulta->bindParam(2, $id);
 			$consulta->execute();
 			$dados = $consulta->fetch(PDO::FETCH_OBJ);
 
-			if ( !empty( $dados->funcao ) ) {
+			if ( !empty( $dados->tipo ) ) {
 				//já existe um registro cadastrado
 				echo "<script>alert('Já existe um cadastro com este tipo');history.back();</script>";
 				exit;

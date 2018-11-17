@@ -247,6 +247,12 @@
                                 <br>
                                 
                                 <button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
+
+
+                                <!-- Button trigger modal -->
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajudaMembro">
+								  AJUDA!!!
+								</button>
                                
 
                             </fieldset>

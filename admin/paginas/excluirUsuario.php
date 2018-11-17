@@ -2,11 +2,11 @@
 
 	$id = "";
 	//recuperar o id enviado por GET
-	if ( isset ( $_GET["id"] ) ) {
-		$id = trim ( $_GET["id"] );
+	if ( isset ( $parametro[1] ) ) {
+		$id = trim ( $parametro[1] );
 	}
 	
-	$sql = "update usuario set ativo = 'Não' where id = ? limit 1";
+	$sql = "update usuario set ativo = 'Nao' where id = ? limit 1";
 	$consulta = $pdo->prepare($sql);
 	$consulta->bindParam(1, $id);
 	//verificar se executou corretamente
@@ -17,4 +17,8 @@
 		//deu erro avisar
 		echo "<script>alert('Erro ao excluir registro!');history.back();</script>";
 	}
+
+
+
+
 

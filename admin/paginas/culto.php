@@ -1,7 +1,7 @@
 <?php
 
 	$id = $responsavel = $data = $hora = $local = $tipo = "";
-	$data = date("d/m/Y");
+	$data = date("d-m-Y");
 
 	//verificar se está editando
 	if ( isset ($parametro[1] ) ) {
@@ -146,6 +146,12 @@
 	
 								    <br>
 									<button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
+
+									<!-- Button trigger modal -->
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajudaCulto">
+								  AJUDA!!!
+								</button>
+                               
 
 
 								</fieldset>

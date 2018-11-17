@@ -1,7 +1,7 @@
 <?php
 
 	$id = $data = $descricao = $valor = $valorPago = $multaJuros =  "";
-	$data = date("d/m/Y");
+	$data = date("d-m-Y");
 
 	//verificar se está editando
 	if ( isset ($parametro[1] ) ) {
@@ -100,13 +100,10 @@
 									<button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajuda">
-  AJUDA!!!
-</button>
-
-
-
+									<!-- Button trigger modal -->
+									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajuda">
+									  AJUDA!!!
+									</button>
 
 								</fieldset>
 							</form>
