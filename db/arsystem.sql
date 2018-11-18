@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 09-Nov-2018 às 02:08
+-- Generation Time: 18-Nov-2018 às 18:42
 -- Versão do servidor: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `culto` (
   PRIMARY KEY (`id`),
   KEY `fk5_idx` (`responsavel`),
   KEY `fk6_idx` (`tipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `culto`
@@ -65,7 +65,11 @@ CREATE TABLE IF NOT EXISTS `culto` (
 INSERT INTO `culto` (`id`, `responsavel`, `data`, `hora`, `local`, `tipo`) VALUES
 (1, 3, '2018-11-07', '19:00', 'umuarama', 2),
 (2, 3, '2018-11-07', '19:30', 'Perobal', 2),
-(4, 3, '2018-11-09', '22:00', 'umuarama', 3);
+(4, 3, '2018-11-09', '22:00', 'umuarama', 3),
+(5, 3, '2018-11-09', '17:00', 'Perobal', 4),
+(7, 3, '2018-11-14', '19:00', 'Perobal', 2),
+(8, 3, '2018-11-16', '22:00', 'umuarama', 6),
+(9, 3, '2018-11-16', '17:20', 'Perobal', 5);
 
 -- --------------------------------------------------------
 
@@ -96,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `funcao` (
   `ativo` varchar(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `categoria_UNIQUE` (`funcao`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `funcao`
@@ -112,7 +116,9 @@ INSERT INTO `funcao` (`id`, `funcao`, `ativo`) VALUES
 (7, 'Secretário', 's'),
 (8, 'Tesoureiro', 's'),
 (9, 'Músico', 's'),
-(11, 'nada 1', 'n');
+(11, 'nada 1', 'n'),
+(12, 'membro', 's'),
+(13, 'teste', 's');
 
 -- --------------------------------------------------------
 
@@ -179,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `tipoevento` (
   `tipo` varchar(45) NOT NULL,
   `ativo` varchar(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `tipoevento`
@@ -190,7 +196,11 @@ INSERT INTO `tipoevento` (`id`, `tipo`, `ativo`) VALUES
 (2, 'culto', 's'),
 (3, 'casamento', 's'),
 (4, 'festa', 's'),
-(5, 'evento', 's');
+(5, 'evento', 's'),
+(6, 'teste 3', 's'),
+(7, 'casamento', 'n'),
+(8, 'casamento', 'n'),
+(9, 'casamento', 's');
 
 -- --------------------------------------------------------
 
@@ -205,11 +215,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `email` varchar(100) NOT NULL,
   `login` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
-  `ativo` enum('Sim','Não') NOT NULL,
-  `nivel` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `ativo` enum('Sim','Nao') NOT NULL,
+  `nivel` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -218,9 +227,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`id`, `nome`, `email`, `login`, `senha`, `ativo`, `nivel`) VALUES
 (1, 'Robson Nascimento', 'robinho2708@hotmail.com', 'Robson', 'b49228b8fa98840355de71ec58f2d714', 'Sim', 1),
 (2, 'alberson', 'alberson@gmail.com', 'alberson', '5883c3f1b26a4f0165cda8554f2e310a', 'Sim', 2),
-(3, 'Gustavo', 'gustavo@gustavo', 'gustavo', '4c96f8324e3ba54a99e78249b95daa30', 'Sim', 2),
+(3, 'Gustavo', 'gustavo@gustavo', 'gustavo', '4c96f8324e3ba54a99e78249b95daa30', 'Nao', 2),
 (4, 'gds', 'gugadellatorre@gmail.com', 'gds', 'e10adc3949ba59abbe56e057f20f883e', 'Sim', 1),
-(5, 'teste', 'teste@teste.com', 'teste', '202cb962ac59075b964b07152d234b70', 'Sim', 2);
+(5, 'teste', 'teste@teste.com', 'teste', '202cb962ac59075b964b07152d234b70', 'Nao', 2),
+(27, 'gustavo dellatorre', 'gugadellatorre@gmail.com', 'guga', '47bce5c74f589f4867dbd57e9ca9f808', 'Sim', 1);
 
 -- --------------------------------------------------------
 
