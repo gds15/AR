@@ -280,7 +280,7 @@
 
 					} else {
 
-						$.get("verificaCpf.php",
+						$.get("paginas/verificaCPF.php",
 						{cpf:cpf, id:id},
 						function(dados) {
 							if ( dados != "ok" ) {

@@ -43,19 +43,6 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-    
-
-    <script>
-  	$(function () { 
-      //validação dos campos
-  		$("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); 
-      //colocar a máscara nos campos .valor - classes
-      $(".valor").maskMoney({
-          thousands : ".",
-          decimal: ","
-      });
-  	} );
-	</script>
 
 </head>
 
@@ -371,6 +358,8 @@
     <script type="text/javascript" src="../js/jquery.maskMoney.min.js"></script>
 
     <script type="text/javascript" src="../js/bootstrap-inputmask.min.js"></script>
+
+    <script type="text/javascript" src="../js/jqBootstrapValidation.js"></script>
    
 
     <script type="text/javascript"
@@ -379,25 +368,32 @@
   src="../lang/summernote-pt-BR.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                $(this).toggleClass('active');
-            });
-        });
+          $(document).ready(function () {
+              $('#sidebarCollapse').on('click', function () {
+                  $('#sidebar').toggleClass('active');
+                  $(this).toggleClass('active');
+              });
+          });
 
-        $(function() {
-            $("#calendario").datepicker({dateFormat: 'dd-mm-yy',
-            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],showOn: "button",
-            buttonImage: "../img/calendario.png",
-            buttonImageOnly: true});
-        });
-        $("#mascara").fadeOut("slow", function(){
-        $("#mascara").hide();
+          $(function() {
+              $("#calendario").datepicker({dateFormat: 'dd-mm-yy',
+              dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+              dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+              dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+              monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+              monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],showOn: "button",
+              buttonImage: "../img/calendario.png",
+              buttonImageOnly: true});
+          });
+          $("#mascara").fadeOut("slow", function(){
+          $("#mascara").hide();
+          $("input,select,textarea").not("[type=submit]").jqBootstrapValidation(); 
+          //colocar a máscara nos campos .valor - classes
+          $(".valor").maskMoney({
+              thousands : ".",
+              decimal: ","
+          });
+
         });
     </script>
 </body>

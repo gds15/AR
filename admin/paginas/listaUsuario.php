@@ -85,7 +85,7 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirUsuario?id="+id;
+				location.href = "excluirUsuario/"+id;
 			}
 		}
 

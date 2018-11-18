@@ -124,7 +124,7 @@
 						data-validation-required-message="Selecione o Ativo">
 							<option value=""></option>
 							<option value="Sim">Sim</option>
-							<option value="Não">Não</option>
+							<option value="Nao">Não</option>
 						</select>
 					</div>
 					<script type="text/javascript">
@@ -179,7 +179,7 @@
 
 			if ( login != "") {
 				//ajax
-				$.get("login",
+				$.get("paginas/login.php",
 					{login:login,id:id},
 					function(dados){
 

@@ -96,6 +96,7 @@
 										<div class="controls">
 											<input type="text" name="hora"
 											class="form-control col-sm-3" id="hora"
+											data-validation-required-message="Informe a hora"
 											data-mask="99:99"
 											value="<?=$hora;?>">
 										</div>
@@ -105,6 +106,7 @@
 										<label for="local">Local:</label>
 										<div class="controls">
 											<input type="text" name="local"
+											data-validation-required-message="Informe o local"
 											class="form-control" id="local"
 											value="<?=$local;?>">
 										</div>

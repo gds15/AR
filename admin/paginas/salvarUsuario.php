@@ -3,8 +3,8 @@
 
 		//recuperar os dados do formulário
 		//print_r( $_POST );
-		$id = trim( $_POST["id"] );
-		$nome = trim( $_POST["nome"] );
+		$id    = trim( $_POST["id"] );
+		$nome  = trim( $_POST["nome"] );
 		$email = trim( $_POST["email"] );
 		$login = trim( $_POST["login"] );
 		$senha = trim( $_POST["senha"] );
