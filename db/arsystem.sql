@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 18-Nov-2018 às 18:42
+-- Generation Time: 19-Nov-2018 às 17:54
 -- Versão do servidor: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -32,12 +32,24 @@ DROP TABLE IF EXISTS `conta`;
 CREATE TABLE IF NOT EXISTS `conta` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `data` date DEFAULT NULL,
-  `descricao` int(11) DEFAULT NULL,
+  `descricao` varchar(100) DEFAULT NULL,
   `valor` varchar(45) DEFAULT NULL,
   `valorPago` varchar(45) DEFAULT NULL,
   `multaJuros` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `conta`
+--
+
+INSERT INTO `conta` (`id`, `data`, `descricao`, `valor`, `valorPago`, `multaJuros`) VALUES
+(2, '2018-11-29', 'agua', '120', '', ''),
+(4, '2018-11-19', 'teste', '120', '', ''),
+(5, '2018-11-19', 'luz', '60', '', ''),
+(6, '2018-11-19', 'agua', '60', '', ''),
+(7, '2018-11-19', 'aluguel', '1000', '', ''),
+(8, '2018-11-19', 'telefone', '500', '', '');
 
 -- --------------------------------------------------------
 
@@ -218,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `ativo` enum('Sim','Nao') NOT NULL,
   `nivel` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -229,8 +241,9 @@ INSERT INTO `usuario` (`id`, `nome`, `email`, `login`, `senha`, `ativo`, `nivel`
 (2, 'alberson', 'alberson@gmail.com', 'alberson', '5883c3f1b26a4f0165cda8554f2e310a', 'Sim', 2),
 (3, 'Gustavo', 'gustavo@gustavo', 'gustavo', '4c96f8324e3ba54a99e78249b95daa30', 'Nao', 2),
 (4, 'gds', 'gugadellatorre@gmail.com', 'gds', 'e10adc3949ba59abbe56e057f20f883e', 'Sim', 1),
-(5, 'teste', 'teste@teste.com', 'teste', '202cb962ac59075b964b07152d234b70', 'Nao', 2),
-(27, 'gustavo dellatorre', 'gugadellatorre@gmail.com', 'guga', '47bce5c74f589f4867dbd57e9ca9f808', 'Sim', 1);
+(5, 'teste', 'teste@teste.com', 'teste', '202cb962ac59075b964b07152d234b70', 'Sim', 1),
+(27, 'gustavo dellatorre', 'gugadellatorre@gmail.com', 'guga', '47bce5c74f589f4867dbd57e9ca9f808', 'Sim', 1),
+(28, 'zezinho', 'zezinho@gmail.com', 'ze', '202cb962ac59075b964b07152d234b70', 'Sim', 2);
 
 -- --------------------------------------------------------
 
