@@ -60,7 +60,7 @@
 						<td>$ativo</td>
 						<td>$nivel</td>
 						<td>
-						<a href='usuario?id=$id'
+						<a href='usuario/$id'
 						class='btn btn-outline-primary'>
 							<i class='fas fa-pen-square'></i>
 						</a>

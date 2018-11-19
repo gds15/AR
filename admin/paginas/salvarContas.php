@@ -2,7 +2,7 @@
 
 	if ( $_POST ) {
 
-		print_r( $_POST );
+		//print_r( $_POST );
 		$id         = trim( $_POST["id"] );
 		$data       = trim( $_POST["data"] );
 		$descricao  = trim( $_POST["descricao"] );
@@ -25,7 +25,7 @@
 			echo "<script>alert('Preencha o valor');history.back();</script>";
 		}  else {
 
-			//verificar se existe culto nessa hora
+			//verificar se existe esta conta cadastrada
 			$sql = "select * from conta
 			where descricao = ? and data = ? limit 1";
 			$consulta = $pdo->prepare($sql);
@@ -70,7 +70,7 @@
 			//verificar se executou corretamente
 			if ( $consulta->execute() ) {
 
-				echo "<script>alert('Registro Salvo');location.href='nContas';</script>";
+				echo "<script>alert('Registro Salvo');location.href='listaConta';</script>";
 
 			} else {
 

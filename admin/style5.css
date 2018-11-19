@@ -8,6 +8,21 @@ body {
     background: #fafafa;
 }
 
+#homeContas {
+    text-align: center;
+}
+
+hr {
+  max-width: 200px;
+  border-width: 3px;
+  border-color: #F05F40;
+}
+
+.card {
+  padding: 5px;
+  margin: 10px;
+}
+
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
@@ -59,9 +74,9 @@ a:focus {
 }
 
 
-/* ---------------------------------------------------
+/*
     SIDEBAR STYLE
------------------------------------------------------ */
+*/
 
 .wrapper {
     display: flex;
@@ -153,9 +168,9 @@ a.article:hover {
 }
 
 
-/* ---------------------------------------------------
+/*
     CONTENT STYLE
------------------------------------------------------ */
+ */
 
 #content {
     width: 100%;
@@ -204,9 +219,9 @@ h3 {
 }
 
 
-/* ---------------------------------------------------
+/*
     MEDIAQUERIES
------------------------------------------------------ */
+*/
 
 @media (max-width: 768px) {
     #sidebar {

@@ -1,7 +1,41 @@
-<h2>HOME!!!!!!!!!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h2 id="homeContas">Contas que Vencem Hoje</h2>
+<hr>
+       
+	<div class="container row">
+        <?php
+        	  $dt = date("Y-m-d");
 
+              $sql = "select *, date_format(data, '%d-%m-%Y') data from conta where data like ? order by descricao";
+              $consulta = $pdo->prepare($sql);
+              $consulta->bindParam(1, $dt);
+              $consulta->execute();
+
+              while ( $dados = $consulta->fetch(PDO::FETCH_OBJ)) {
+
+                $id        = $dados->id;
+                $data      = $dados->data;
+                $descricao = $dados->descricao;
+                $valor     = $dados->valor;
+                
+
+                ?>
+
+                  <div class="card" style="width: 18rem;">
+                  <div class="card-header">
+                   <h3>Descrição: <?=$descricao;?></h3>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Data: <?=$data;?></li>
+                  <li class="list-group-item">Valor: <?=$valor;?></li>
+                  </ul>
+                  </div>
+
+             
+        <?php
+            }
+        ?>
+
+    </div>
             
 
             

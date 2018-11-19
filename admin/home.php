@@ -116,7 +116,10 @@
                         </li>
                         <li>
                             <a href="listaTipoEvento">Tipos de Eventos</a>
-                        </li>                      
+                        </li> 
+                        <li>
+                            <a href="listaConta">Contas</a>
+                        </li>                     
                     </ul>
                 </li>
                 <li>
@@ -178,8 +181,17 @@
 			}
 
             $nv = $_SESSION["admin"]["nivel"];
-            //verificar se o nivel de usuario e deferente de 1 para n deixar ele entrar no cadastro de usuarios
-            if ($p == "usuario" && $nv == "2") {
+
+            if ($p == "contas" && $nv == "2") {
+              //se o usuario for lvl 2 n pode cadastrar contas
+                include "paginas/nv.php";
+
+            }  else if ($p == "listaConta" && $nv == "2") {
+                //se o nivel do usuario for 2 não vai poder ver a lista de contas
+                include "paginas/nv.php";
+            
+            } else if ($p == "usuario" && $nv == "2") {  
+                //verificar se o nivel de usuario e deferente de 1 para n deixar ele entrar no cadastro de usuarios
                 //se for o nivel 2 ele abre a pg nv.php
                 include "paginas/nv.php";
 

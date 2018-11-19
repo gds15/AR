@@ -1,10 +1,10 @@
 
 	<div class="well container">
 			<ol class="breadcrumb">
-         		<li class="breadcrumb-item active">Lista de Cultos/Eventos</li>
+         		<li class="breadcrumb-item active">Lista de Contas</li>
        	 	</ol>
 
-		<a href="culto" title="Cadastro de cultos" class="btn btn-outline-success pull-right">
+		<a href="contas" title="Cadastro de admin" class="btn btn-outline-success pull-right">
 			<i class="fa fa-file"></i>
 			Novo Cadastro
 		</a>
@@ -31,11 +31,8 @@
 
 			$palavra = "%$palavra%";
 
-			//buscar do evento
-			$sql = "select c.id, m.nome, date_format(c.data, '%d-%m-%Y') data, c.hora, c.local, t.tipo from 
-			culto c inner join membro m on (c.responsavel = m.id) inner join tipoevento t on (c.tipo = t.id) ";
-
-
+			//buscar da funcao
+			$sql = "select *, date_format(data, '%d-%m-%Y') data from conta where descricao like ? order by descricao";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $palavra);
 			//executar o sql
@@ -54,11 +51,11 @@
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
-					<td>Responsavel</td>
 					<td>Data</td>
-					<td>Hora</td>
-					<td>Local</td>
-					<td>Tipo</td>
+					<td>Descrição</td>
+					<td>Valor</td>
+					<td>Valor Pago</td>
+					<td>Juros</td>
 					<td width="15%">Opções</td>
 				</tr>
 			</thead>
@@ -67,22 +64,22 @@
 			while ( $dados = $consulta->fetch( PDO::FETCH_OBJ ) ) {
 
 				//separar os dados do banco de dados
-				$id          = $dados->id;
-				$responsavel = $dados->responsavel;
-				$data        = $dados->data;
-				$hora        = $dados->hora;
-				$local       = $dados->local;
-				$tipo        = $dados->tipo;
+				$id         = $dados->id;
+				$data       = $dados->data;
+				$descricao  = $dados->descricao;
+				$valor      = $dados->valor;
+				$valorPago  = $dados->valorPago;
+				$multaJuros = $dados->multaJuros;
 
 				echo "<tr>
 					<td>$id</td>
-					<td>$responsavel</td>
 					<td>$data</td>
-					<td>$hora</td>
-					<td>$local</td>
-					<td>$tipo</td>
+					<td>$descricao</td>
+					<td>$valor</td>
+					<td>$valorPago</td>
+					<td>$multaJuros</td>
 					<td>
-						<a href='culto/$id'
+						<a href='contas/$id'
 						class='btn btn-outline-primary'>
 							<i class='fas fa-pen-square'></i>
 						</a>
@@ -106,7 +103,7 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirCulto/"+id;
+				location.href = "excluirConta/"+id;
 			}
 		}
 	</script>
