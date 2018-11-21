@@ -51,7 +51,7 @@
 					<td>$nome</td>
 					<td>$cpf</td>
 					<td>
-						<a href='membro?id=$id'
+						<a href='membro/$id'
 						class='btn btn-outline-primary'>
 							<i class='fas fa-pen-square'></i>
 						</a>
@@ -74,7 +74,7 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirMembro?id="+id;
+				location.href = "excluirMembro/"+id;
 			}
 		}
 

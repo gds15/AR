@@ -3,8 +3,8 @@
 
 	$id = "";
 	//recuperar o id enviado por GET
-	if ( isset ( $_GET["id"] ) ) {
-		$id = trim ( $_GET["id"] );
+	if ( isset ( $parametro[1] ) ) {
+		$id = trim ( $parametro[1] );
 	}
 
 	//verificar se existe um culto com esse responsavel

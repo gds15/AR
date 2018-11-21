@@ -11,14 +11,14 @@
 	}
 
 	//incluir o arquivo para conectar no banco
-	include "../config/conecta.php";
+	include "../../config/conecta.php";
 	if ( empty ( $msg ) ) {
 
 		$cpf = "";
 		if ( isset ( $_GET["cpf"] ) ) 
 			$cpf = trim ( $_GET["cpf"] );
 
-		$sql = "select * from cliente where cpf = ? limit 1";
+		$sql = "select * from membro where cpf = ? limit 1";
 		$consulta = $pdo->prepare($sql);
 		$consulta->bindParam(1, $cpf);
 		$consulta->execute();
