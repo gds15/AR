@@ -142,7 +142,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-
+                    <!--X para fechar menu-->
                     <button type="button" id="sidebarCollapse" class="navbar-btn">
                         <span></span>
                         <span></span>
@@ -156,6 +156,9 @@
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="home">Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="perfil">Perfil</a>
                             </li>
                             <li class="nav-item">               	        
                                 <a class="nav-link" href="sair.php"> Olá <?php echo $_SESSION["admin"]["login"];?> - Sair</a>                                                             
@@ -352,6 +355,27 @@
       </div>
     </div>
     <!--fim modal tipo evento-->
+
+     <!-- Modal perfil -->
+    <div class="modal fade" id="ajudaPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Ajuda Tipo de Eventos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            No perfil você pode visualizar ou alterar algumas informaçoes basicas de sua conta, e tambem apagar sua conta.  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--fim modal perfil-->
 
     
 
