@@ -8,7 +8,7 @@
 		$funcao_id          = trim ( $_POST["funcao_id"] );
 		$email				= trim ( $_POST["email"] );
 		$datanascimento 	= trim ( $_POST["datanascimento"] );
-		$datanascimento 	= explode("/", $datanascimento);
+		$datanascimento 	= explode("-", $datanascimento);
 		$dia 				= $datanascimento[0];
 		$mes 				= $datanascimento[1];
 		$ano 				= $datanascimento[2];

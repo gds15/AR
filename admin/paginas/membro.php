@@ -8,7 +8,7 @@
 	    //recuperar o id
 	    $id = trim( $parametro[1] );
 	    //selecionar os dados do banco
-	    $sql = "select *, date_format(datanascimento,'%d/%m/%Y') datanascimento from membre where id = ? limit 1";
+	    $sql = "select *, date_format(datanascimento,'%d/%m/%Y') datanascimento from membro where id = ? limit 1";
 	    //prepare
 	    $consulta = $pdo->prepare( $sql );
 	    //passar um parametro
@@ -22,7 +22,7 @@
 		$nome 			= $dados->nome;
 		$funcao_id 		= $dados->funcao_id;
 		$cpf 			= $dados->cpf;
-		$datanascimento = $dados->dt;
+		$datanascimento = $dados->datanascimento;
 		$email 			= $dados->email;
 		$telefone 		= $dados->telefone;
 		$endereco		= $dados->endereco;
@@ -132,10 +132,17 @@
 								</div>
 
 								<div class="control-group">
-								    <label for="calendario">Data Nascimento:</label>
-								    <div class="controls">
-								    	<input type="text" name="datanascimento" class="form-control col-sm-3" id="calendario" value="<?=$datanascimento;?>">
-								    </div>	
+									<label for="datanascimento">Data de Nascimento:</label>
+									<div class="controls">
+										<input type="text" name="datanascimento" 
+										id="datanascimento" 
+										required
+										data-validation-required-message="Digite sua data de nascimento"
+										data-mask="99/99/9999"
+										onblur="verificaData(this.value)"
+										value="<?=$datanascimento;?>"
+										class="form-control">
+									</div>
 								</div>
 
 								<div class="control-group">
@@ -146,6 +153,7 @@
                                         name="telefone"
                                         class="form-control"
                                         required
+                                        data-mask="(99) 9999-9999?9"
                                         data-validation-required-message="Preencha o telefone"
                                         value="<?=$telefone;?>">
                                     </div>
@@ -198,7 +206,7 @@
 											required
 											data-validation-required-message="Selecione o Estado"
 											placeholder="Selecione o Estado">
-												<option value="<?=$estado;?>"></option>
+												<option value="<?=$estado;?>"><?=$estado;?></option>
 												<option value="ac">Acre</option>
 												<option value="al">Alagoas</option>
 												<option value="ap">Amapá</option>
@@ -303,7 +311,7 @@
 
 					if ( data != "") {
 						//ajax
-						$.get("data.php",
+						$.get("paginas/data.php",
 							{data:data},
 							function(dados){
 

@@ -54,7 +54,7 @@
 			//verificar se executou corretamente
 			if ( $consulta->execute() ) {
 
-				echo "<script>alert('Perfil Atualizado!!!o');location.href='perfil';</script>";
+				echo "<script>alert('Perfil Atualizado!!!');location.href='perfil';</script>";
 
 			} else {
 

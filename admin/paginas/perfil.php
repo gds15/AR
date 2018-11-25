@@ -79,6 +79,7 @@
 						class="form-control"
 						required onblur="verificaLogin(this.value)"
 						data-validation-required-message="Preencha o login"
+						readonly
 						value="<?=$login;?>">
 					</div>
 				</div>

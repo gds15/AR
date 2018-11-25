@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 19-Nov-2018 às 17:54
+-- Generation Time: 25-Nov-2018 às 06:54
 -- Versão do servidor: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -86,6 +86,26 @@ INSERT INTO `culto` (`id`, `responsavel`, `data`, `hora`, `local`, `tipo`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `dizimo`
+--
+
+DROP TABLE IF EXISTS `dizimo`;
+CREATE TABLE IF NOT EXISTS `dizimo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `membro` int(11) NOT NULL,
+  `valor` varchar(45) NOT NULL,
+  `desc` varchar(100) NOT NULL,
+  `data` date NOT NULL,
+  `usuariocds` int(11) NOT NULL,
+  `mes` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fkk1_idx` (`membro`),
+  KEY `fkk2_idx` (`usuariocds`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `foto`
 --
 
@@ -112,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `funcao` (
   `ativo` varchar(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `categoria_UNIQUE` (`funcao`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `funcao`
@@ -130,7 +150,8 @@ INSERT INTO `funcao` (`id`, `funcao`, `ativo`) VALUES
 (9, 'Músico', 's'),
 (11, 'nada 1', 'n'),
 (12, 'membro', 's'),
-(13, 'teste', 's');
+(13, 'teste', 's'),
+(14, 'a2', 's');
 
 -- --------------------------------------------------------
 
@@ -240,7 +261,7 @@ INSERT INTO `usuario` (`id`, `nome`, `email`, `login`, `senha`, `ativo`, `nivel`
 (1, 'Robson Nascimento', 'robinho2708@hotmail.com', 'Robson', 'b49228b8fa98840355de71ec58f2d714', 'Sim', 1),
 (2, 'alberson', 'alberson@gmail.com', 'alberson', '5883c3f1b26a4f0165cda8554f2e310a', 'Sim', 2),
 (3, 'Gustavo', 'gustavo@gustavo', 'gustavo', '4c96f8324e3ba54a99e78249b95daa30', 'Nao', 2),
-(4, 'gds', 'gugadellatorre@gmail.com', 'gds', 'e10adc3949ba59abbe56e057f20f883e', 'Sim', 1),
+(4, 'gustavo D', 'gugadellatorre@gmail.com', 'gds', '6d2016d49f225ce67a56c52613ff73f3', 'Sim', 1),
 (5, 'teste', 'teste@teste.com', 'teste', '202cb962ac59075b964b07152d234b70', 'Sim', 1),
 (27, 'gustavo dellatorre', 'gugadellatorre@gmail.com', 'guga', '47bce5c74f589f4867dbd57e9ca9f808', 'Sim', 1),
 (28, 'zezinho', 'zezinho@gmail.com', 'ze', '202cb962ac59075b964b07152d234b70', 'Sim', 2);
@@ -272,6 +293,13 @@ CREATE TABLE IF NOT EXISTS `video` (
 ALTER TABLE `culto`
   ADD CONSTRAINT `fk5` FOREIGN KEY (`responsavel`) REFERENCES `membro` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk6` FOREIGN KEY (`tipo`) REFERENCES `tipoevento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `dizimo`
+--
+ALTER TABLE `dizimo`
+  ADD CONSTRAINT `fkk1` FOREIGN KEY (`membro`) REFERENCES `membro` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fkk2` FOREIGN KEY (`usuariocds`) REFERENCES `usuario` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `membro`
