@@ -89,13 +89,13 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">RELATÓRIOS</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="rCultos">Cultos</a>
+                            <a href="rCultos">Eventos</a>
                         </li>
                         <li>
-                            <a href="dizimos">Dizimos</a>
+                            <a href="rdizimo">Todos Dizimos por data</a>
                         </li>
                         <li>
-                            <a href="outros">Função</a>
+                            <a href="rdizimo2">Dizimos por Membro e data</a>
                         </li>
                     </ul>
                 </li>

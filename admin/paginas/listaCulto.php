@@ -32,7 +32,7 @@
 			$palavra = "%$palavra%";
 
 			//buscar do evento
-			$sql = "select c.id, m.nome, date_format(c.data, '%d-%m-%Y') data, c.hora, c.local, t.tipo from 
+			$sql = "select c.id, date_format(c.data, '%d-%m-%Y') data, c.hora, c.local, t.tipo from 
 			culto c inner join membro m on (c.responsavel = m.id) inner join tipoevento t on (c.tipo = t.id) ";
 
 
@@ -54,7 +54,6 @@
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
-					<td>Responsavel</td>
 					<td>Data</td>
 					<td>Hora</td>
 					<td>Local</td>
@@ -68,7 +67,6 @@
 
 				//separar os dados do banco de dados
 				$id          = $dados->id;
-				$responsavel = $dados->responsavel;
 				$data        = $dados->data;
 				$hora        = $dados->hora;
 				$local       = $dados->local;
@@ -76,7 +74,6 @@
 
 				echo "<tr>
 					<td>$id</td>
-					<td>$responsavel</td>
 					<td>$data</td>
 					<td>$hora</td>
 					<td>$local</td>

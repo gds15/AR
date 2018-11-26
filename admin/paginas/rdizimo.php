@@ -1,13 +1,12 @@
 <div class="container py-1">
     <div class="row">
         <div class="mx-auto col-sm-12">
-                    <!-- form usuario -->
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="mb-0">Relatórios de Eventos</h4>
+                            <h4 class="mb-0">Relatórios de Dizimos</h4>
                         </div>
                         <div class="card-body">
-	                        <form name="form1" method="post" action="reventos" novalidate>
+	                        <form name="form1" method="post" action="imprimeDizimo" novalidate>
 								<fieldset>
 									<legend>Informe as Datas:</legend>
 
