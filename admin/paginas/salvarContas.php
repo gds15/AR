@@ -27,10 +27,11 @@
 
 			//verificar se existe esta conta cadastrada
 			$sql = "select * from conta
-			where descricao = ? and data = ? limit 1";
+			where descricao = ? and data = ? and id <> ? limit 1";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $descricao);
 			$consulta->bindParam(2, $data);
+			$consulta->bindParam(3, $id);
 			$consulta->execute();
 			$dados = $consulta->fetch(PDO::FETCH_OBJ);
 

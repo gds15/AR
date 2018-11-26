@@ -48,6 +48,10 @@
 	                  <li class="list-group-item">Data: <?=$data;?></li>
 	                  <li class="list-group-item">Valor: <?=$valor;?></li>
 	                  </ul>
+                    <a href="contas/<?=+$id?>"
+                    class='btn btn-outline-primary'>
+                    <i class="fas fa-credit-card"></i>  Pagar
+                    </a>
 	                  </div>    
         <?php
             }
