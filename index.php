@@ -100,7 +100,7 @@
             <div class="container row">
               <?php
 
-              $sql = "SELECT * FROM culto  ORDER BY id DESC LIMIT 6";
+              $sql = "SELECT c.*,  date_format(c.data, '%d-%m-%Y') data, t.tipo FROM culto c inner join tipoevento t  ORDER BY id DESC LIMIT 6";
               $consulta = $pdo->prepare($sql);
               $consulta->execute();
 
