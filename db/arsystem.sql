@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Nov-2018 às 15:46
+-- Generation Time: 27-Nov-2018 às 20:03
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 7.2.11
 
@@ -49,7 +49,7 @@ INSERT INTO `conta` (`id`, `data`, `descricao`, `valor`, `valorPago`, `multaJuro
 (6, '2018-11-19', 'agua', 60, 60, 0, '11'),
 (7, '2018-11-19', 'aluguel', 1000, 1000, 0, '11'),
 (8, '2018-11-19', 'telefone', 500, 500, 0, '11'),
-(9, '2018-11-27', 'outros', 1000, 0, 0, '11'),
+(9, '2018-11-27', 'outros', 1, 1000, 0, '11'),
 (10, '2018-11-27', 'encomenda', 500, 0, 0, '11');
 
 -- --------------------------------------------------------
@@ -101,7 +101,7 @@ CREATE TABLE `dizimo` (
 --
 
 INSERT INTO `dizimo` (`id`, `membro`, `valor`, `desc`, `data`, `usuariocds`, `mes`) VALUES
-(1, 3, 60, 'teste', '2018-11-27', 4, '11');
+(2, 4, 5000, 'teste', '2018-11-27', 4, '11');
 
 -- --------------------------------------------------------
 
@@ -174,7 +174,8 @@ CREATE TABLE `membro` (
 --
 
 INSERT INTO `membro` (`id`, `nome`, `funcao_id`, `email`, `cpf`, `datanascimento`, `telefone`, `endereco`, `cidade`, `estado`, `bairro`, `cep`) VALUES
-(3, 'robinho', 2, 'robinho2708@hotmail.com', '555.555.555-55', '1990-08-10', '(44) 4444-44444', 'avenida estação, 1801', 'umuarama', '', 'centro', '87505-090');
+(3, 'robinho', 2, 'robinho2708@hotmail.com', '555.555.555-55', '1990-08-10', '(44) 4444-44444', 'avenida estação, 1801', 'umuarama', '', 'centro', '87505-090'),
+(4, 'gustavo', 8, 'gugadellatorre@gmail.com', '561.561.561-51', '0000-00-00', '(65) 4156-1561_', 'dsfdfdfdfdf', 'Perobal', '', 'fbfbfb', '56565-656');
 
 -- --------------------------------------------------------
 
@@ -220,7 +221,7 @@ INSERT INTO `tipoevento` (`id`, `tipo`, `ativo`) VALUES
 (6, 'teste 3', 's'),
 (7, 'casamento', 'n'),
 (8, 'casamento', 'n'),
-(9, 'casamento', 's');
+(9, 'casamento', 'n');
 
 -- --------------------------------------------------------
 
@@ -357,7 +358,7 @@ ALTER TABLE `culto`
 -- AUTO_INCREMENT for table `dizimo`
 --
 ALTER TABLE `dizimo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `foto`
@@ -375,7 +376,7 @@ ALTER TABLE `funcao`
 -- AUTO_INCREMENT for table `membro`
 --
 ALTER TABLE `membro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `oferta`
