@@ -148,35 +148,8 @@
 
     <section class="bg-dark text-white" id="midias">
       <div class="container text-center">
-        <h2 class="mb-4">Teste para ver como fica!</h2>
+        <h2 class="mb-4">Galeria</h2>
         <a class="btn btn-light btn-xl sr-button" href="#page-top">topo!</a>
-      </div>
-
-
-<!-- Button to Open the Modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Open modal
-</button>
-
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Modal body..
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
 
     </div>
