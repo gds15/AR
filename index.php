@@ -62,12 +62,12 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h1 class="text-uppercase">
-              <strong>Nome da Igreja</strong>
+              <strong>ARSYSTEM</strong>
             </h1>
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">alguma meta ou frase da igreja!</p>
+            <p class="text-faded mb-5">BRASIL ACIMA DE TUDO E DEUS ACIMA DE TODOS</p>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#sobre">Ver Mais</a>
           </div>
         </div>
@@ -81,13 +81,8 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">Sobre a igreja!</h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#page-top">teste!</a>
+            <p class="text-faded mb-4">Sistema desenvolvido para controle e gerenciamento de membros e entrada e saida de valores.</p>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#page-top">Voltar</a>
           </div>
         </div>
       </div>
@@ -200,18 +195,18 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Nossos Contatos!</h2>
             <hr class="my-4">
-            <p class="mb-5">Entre em Contato Teremos o maior Prazer em ajudar!</p>
+            <p class="mb-5">Entre em contato conosco teremos o maior prazer em ajudar!</p>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 ml-auto text-center">
             <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-            <p>123-456-6789</p>
+            <p>(44) 3621-3700</p>
           </div>
           <div class="col-lg-4 mr-auto text-center">
             <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
             <p>
-              <a href="mailto:gugadellatorre@gmail.com">contato@contato.com</a>
+              <a href="mailto:gugadellatorre@gmail.com">contato@arsystem.com.br</a>
             </p>
           </div>
         </div>

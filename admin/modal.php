@@ -14,14 +14,7 @@
             </button>
           </div>
           <div class="modal-body">
-            Aqui você pode cadastrar tanto contas ja pagas como contasque ainda ira pagar.
-            Para cadastrar uma conta já paga e simples basta informar a data do vencimento, 
-            a descrição o valor da conta e o valor pago, ja o multa/juros e so preenchido 
-            se a conta foi paga com atraso pois usamos essa informação para gerar o relatorio ,
-            de contas pagas com atraso ou em dia.
-            Já no cadastro de contas que ainda esta para vencer e simples também basta informar
-            a data do vencimento, o valor e a descrição e salvar, na home sera mostradas as contas
-            que ira vencer por primeiro. 
+            Aqui você pode cadastrar tantas contas já pagas como contas que ainda irá pagar. Para cadastrar uma conta já paga e simples basta informar a data do vencimento, a descrição o valor da conta e o valor pago, já a multa/juros e só preenchido se a conta foi paga com atraso pois usamos essa informação para gerar o relatório, de contas pagas com atraso ou em dia. Já no cadastro de contas que ainda está para vencer e simples também basta informar a data do vencimento, o valor e a descrição e salvar, na home será mostrado as contas que irá vencer por primeiro.
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -42,8 +35,7 @@
             </button>
           </div>
           <div class="modal-body">
-            estes usuarios cadastrados aqui seram os responsaveis pelo sistema, e não os membros da igreja,
-            os membros da igreja seram cadastrados na parte do cadastro de membros.  
+            Os usuários cadastrados aqui serão os responsáveis pelo sistema, e não os membros da igreja, os membros da igreja serão cadastrados na parte do cadastro de membros.  
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -64,8 +56,7 @@
             </button>
           </div>
           <div class="modal-body">
-            nesta tela seram cadastrados os membros da igreja, estes não poderam entrar no sistema.  
-          </div>
+                  Nesta tela serão cadastrados os membros da igreja, estes não poderão entrar no sistema.          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
           </div>
@@ -85,7 +76,7 @@
             </button>
           </div>
           <div class="modal-body">
-            nesta tela seram cadastrados as funções que os membros possuirão  
+            Nesta tela serão cadastradas as funções que os membros possuirão  
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -106,8 +97,7 @@
             </button>
           </div>
           <div class="modal-body">
-            nesta tela sera cadastrados os eventos ou cultos do dia ou semana.  
-          </div>
+            Nesta tela será cadastrado os eventos ou cultos do dia ou semana.          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
           </div>
@@ -127,7 +117,7 @@
             </button>
           </div>
           <div class="modal-body">
-            nesta tela sera cadastrado os tipos de eventos que podem ser escolhidos na tela de cadastro de cultos.  
+            Nesta tela será cadastrado os tipos de eventos que podem ser escolhidos na tela de cadastro de cultos.  
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -148,7 +138,7 @@
             </button>
           </div>
           <div class="modal-body">
-            No perfil você pode visualizar ou alterar algumas informaçoes basicas de sua conta, e tambem apagar sua conta.  
+            No perfil você pode visualizar ou alterar algumas informações básicas de sua conta, e também apagar sua conta.  
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
@@ -170,12 +160,7 @@
             </button>
           </div>
           <div class="modal-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum..  
+            Nesta tela serão cadastrados os Dízimos dos membros já cadastrados anteriormente.
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
