@@ -3,6 +3,7 @@
 	if ( $_POST ) {
 
 		print_r( $_POST );
+		//exit();
 		$id     = trim( $_POST["id"] );
 		$membro = trim( $_POST["membro"] );
 		$data   = trim( $_POST["data"] );
@@ -50,8 +51,9 @@
 			if ( empty ( $id ) ) {
 				
 				//gravar no banco de dados
-				$sql = "insert into dizimo (id, membro, valor, desc, data, usuariocds, mes)
-				values (NULL, ? , ?, ?, ?, ?, ? )";
+				//$sql = "insert into dizimo (id, membro, valor, desc, data, usuariocds, mes)
+				$sql = "INSERT INTO dizimo VALUES ( null, ?, ?, ?, ?, ?, ?)";
+
 				$consulta = $pdo->prepare($sql);
 				//passar o parametro
 				$consulta->bindParam(1, $membro);
@@ -76,7 +78,7 @@
 			//verificar se executou corretamente
 			if ( $consulta->execute() ) {
 
-				echo "<script>alert('Registro Salvo');location.href='listaDizimo0';</script>";
+				echo "<script>alert('Registro Salvo');location.href='listaDizimo';</script>";
 
 			} else {
 

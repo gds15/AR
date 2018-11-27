@@ -97,6 +97,9 @@
                         <li>
                             <a href="rdizimo2">Dizimos por Membro e data</a>
                         </li>
+                        <li>
+                            <a href="entsai">Total Entradas e Saidas</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -119,6 +122,9 @@
                         </li> 
                         <li>
                             <a href="listaConta">Contas</a>
+                        </li>  
+                        <li>
+                            <a href="listaDizimo">Dizimos</a>
                         </li>                     
                     </ul>
                 </li>

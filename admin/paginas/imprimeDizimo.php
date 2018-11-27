@@ -37,7 +37,7 @@
       if ( strtotime( $datai ) > strtotime( $dataf ) ) {
         echo "<script>alert('A data inicial não pode ser maior que a data final');history.back();</script>";
       } else {
-        $sql = "select d.id, m.nome, d.valor, d.desc, date_format(d.data, '%d-%m-%Y') data from dizimo d inner join membro m on (m.id = d.membro) where d.data >= ? and d.data <= ? order by d.data";
+        $sql = "select d.id, m.nome, d.valor, d.desc, date_format(d.data, '%d-%m-%Y') data from dizimo d inner join membro m on (d.membro = m.id) where d.data >= ? and d.data <= ? order by d.data";
 
         $consulta = $pdo->prepare($sql);
         $consulta->bindParam(1, $datai);
@@ -46,14 +46,14 @@
 
         while ( $dados = $consulta->fetch(PDO::FETCH_OBJ ) ) {
           $id     = $dados->id;
-          $membro = $dados->membro;
+          $nome = $dados->nome;
           $valor  = $dados->valor;
           $desc   = $dados->desc;
           $data   = $dados->data;
 
           echo "<tr>
             <td>$id</td>
-            <td>$membro</td>
+            <td>$nome</td>
             <td>$valor</td>
             <td>$desc</td>
             <td>$data</td>

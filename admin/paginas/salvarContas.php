@@ -11,6 +11,7 @@
 		$multaJuros = trim( $_POST["multaJuros"] );
 
 		$data = formatardata( $data );
+		$mes = date("m");
 
 
 		//verificar se o campo esta em branco
@@ -46,8 +47,8 @@
 			if ( empty ( $id ) ) {
 
 				//gravar no banco de dados
-				$sql = "insert into conta (id, data, descricao, valor, valorPago, multaJuros)
-				values (NULL, ? , ?, ?, ?, ? )";
+				$sql = "insert into conta (id, data, descricao, valor, valorPago, multaJuros, mes)
+				values (NULL, ? , ?, ?, ?, ?, ? )";
 				$consulta = $pdo->prepare($sql);
 				//passar o parametro
 				$consulta->bindParam(1, $data);
@@ -55,6 +56,7 @@
 				$consulta->bindParam(3, $valor);
 				$consulta->bindParam(4, $valorPago);
 				$consulta->bindParam(5, $multaJuros);
+				$consulta->bindParam(6, $mes);
 			} else {
 				//dar update
 				$sql = "update conta 

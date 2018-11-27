@@ -9,7 +9,7 @@
 		//recuperar o id por get
 		$id = trim( $parametro[1] );
 		//selecionar os dados do banco
-		$sql = "select id, date_format(data, '%d-%m-%Y') data, valor, valorPago, multaJuros from conta where id = ? limit 1";
+		$sql = "select *, date_format(data, '%d-%m-%Y') data from conta where id = ? limit 1";
 		//prepare
 		$consulta = $pdo->prepare( $sql );
 		//passar um parametro
@@ -21,6 +21,7 @@
 
 		$id          = $dados->id;
 		$data        = $dados->data;
+		$descricao   =$dados->descricao;
 		$valor       = $dados->valor;
 		$valorPago   = $dados->valorPago;
 		$multaJuros  = $dados->multaJuros;
@@ -77,10 +78,10 @@
 									</div>
 
 									<div class="control-group">
-										<label for="valor pago">ValorPago:</label>
+										<label for="valorPago">ValorPago:</label>
 										<div class="controls">
-											<input type="text" name="valor pago"
-											class="form-control" id="valor pago"
+											<input type="text" name="valorPago"
+											class="form-control" id="valorPago"
 											value="<?=$valorPago;?>">
 										</div>
 									</div>
@@ -88,8 +89,8 @@
 									<div class="control-group">
 										<label for="multa">Multa/Juros:</label>
 										<div class="controls">
-											<input type="text" name="multa"
-											class="form-control" id="multa"
+											<input type="text" name="multaJuros"
+											class="form-control" id="multaJuros"
 											value="<?=$multaJuros;?>">
 										</div>
 									</div>
