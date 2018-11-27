@@ -25,6 +25,11 @@
 		$valor       = $dados->valor;
 		$valorPago   = $dados->valorPago;
 		$multaJuros  = $dados->multaJuros;
+
+		//formatar o valor - passar p formato R$
+		$valor = number_format( $valor, 2, "," , ".");
+		$valorPago = number_format( $valorPago, 2, "," , ".");
+		$multaJuros = number_format( $multaJuros, 2, "," , ".");
 	}
 ?>
 <div class="container py-1">

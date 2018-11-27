@@ -10,6 +10,16 @@
 	//incluir o arquivo para conectar no banco
 	include "../config/conecta.php";
 
+    function formatarvalor($valor) {
+        $valor = str_replace( ".", "", $valor);
+        //busca - valor para substituir - variavel
+        
+        $valor = str_replace( ",", ".", $valor);
+        
+        //retornar um valor
+        return $valor;
+    }
+
     //funcao para formatar datas
       function formatardata($data) {
         // 29/09/2017 -> 2017-09-29
@@ -93,6 +103,9 @@
                         </li>
                         <li>
                             <a href="rdizimo">Todos Dizimos por data</a>
+                        </li>
+                        <li>
+                            <a href="rContas">Contas</a>
                         </li>
                         <li>
                             <a href="rdizimo2">Dizimos por Membro e data</a>

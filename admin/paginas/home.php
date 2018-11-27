@@ -36,6 +36,8 @@
                 $data      = $dados->data;
                 $descricao = $dados->descricao;
                 $valor     = $dados->valor;
+                //formatar o valor - passar p formato R$
+                $valor = number_format( $valor, 2, "," , ".");
                 
 
                 ?>
