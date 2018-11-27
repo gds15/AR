@@ -14,6 +14,7 @@
     </div>
   </div>
   
+  <h1>Dizimos</h1>
   <table class="table table-striped table-bordered">
     <thead bgcolor="#ccc">
       <tr>

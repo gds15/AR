@@ -13,7 +13,7 @@
       </p>
     </div>
   </div>
-  
+  <h1>Contas a Pagar</h1>
   <table class="table table-striped table-bordered">
     <thead bgcolor="#ccc">
       <tr>

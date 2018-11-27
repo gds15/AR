@@ -13,7 +13,7 @@
       </p>
     </div>
   </div>
-  
+  <h1>Contas Pagas</h1>
   <table class="table table-striped table-bordered">
     <thead bgcolor="#ccc">
       <tr>
@@ -52,6 +52,11 @@
           $valor      = $dados->valor;
           $valorPago  = $dados->valorPago;
           $multa      = $dados->multaJuros;
+
+          $valor = number_format( $valor, 2, "," , ".");
+          $valorPago = number_format( $valorPago, 2, "," , ".");
+          $multa = number_format( $multa, 2, "," , ".");
+
 
           echo "<tr>
             <td>$id</td>
