@@ -101,7 +101,7 @@
 		function deletar(id) {
 			if ( confirm("Deseja mesmo excluir?") ) {
 				//enviar o id para uma página
-				location.href = "excluirdizimo/"+id;
+				location.href = "excluirDizimo/"+id;
 			}
 		}
 	</script>
