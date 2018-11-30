@@ -20,6 +20,13 @@
 		$estado 			= trim ( $_POST["estado"] );
 		$bairro				= trim ( $_POST["bairro"] );
 		$cep 				= trim ( $_POST["cep"] );
+
+		$hoje = date();
+
+
+		if ($datanascimento > $hoje) {
+			echo "<script>alert('A data de nascimento não pode ser maior que a data de hoje.');history.back();</script>";
+		} else {
 		
 
 		if( empty( $id ) ) {
@@ -69,6 +76,8 @@
 			echo "<script>alert('ERRO ao salvar membro'); history.back();</script>";
 
 		}
+
+	}
 
 	}  else {
 

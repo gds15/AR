@@ -1,7 +1,8 @@
 <?php
 
-	$id = $data = $descricao = $valor = $valorPago = $multaJuros =  "";
+	$id = $data = $descricao = $valor = $valorPago = $dataPagamento =  "";
 	$data = date("d-m-Y");
+	//$dataPagamento = date("d-m-Y"); a data pagamento e melhor n estar preenchida
 
 	//verificar se está editando
 	if ( isset ($parametro[1] ) ) {
@@ -69,6 +70,7 @@
 										<div class="controls">
 											<input type="text" name="descricao"
 											class="form-control" id="descricao"
+											data-validation-required-message="Preencha a descrição"
 											value="<?=$descricao;?>">
 										</div>
 									</div>
@@ -77,31 +79,35 @@
 										<label for="valor">Valor:</label>
 										<div class="controls">
 											<input type="text" name="valor"
-											class="form-control" id="valor"
+											class="form-control valor" id="valor"
+											data-validation-required-message="Preencha o valor"
 											value="<?=$valor;?>">
 										</div>
 									</div>
 
+									<hr>
+
 									<div class="control-group">
-										<label for="valorPago">ValorPago:</label>
+									<label for="dataPagamento">Data de Pagamento:</label>
+									<div class="controls">
+										<input type="text" name="dataPagamento" 
+										id="dataPagamento" 
+										required
+										data-mask="99-99-9999"
+										value="<?=$dataPagamento;?>"
+										class="form-control">
+									</div>
+								</div>
+
+									<div class="control-group">
+										<label for="valorPago">Valor Pago:</label>
 										<div class="controls">
 											<input type="text" name="valorPago"
-											class="form-control" id="valorPago"
+											class="form-control valor" id="valorPago"
 											value="<?=$valorPago;?>">
 										</div>
 									</div>
 
-									<div class="control-group">
-										<label for="multa">Multa/Juros:</label>
-										<div class="controls">
-											<input type="text" name="multaJuros"
-											class="form-control" id="multaJuros"
-											value="<?=$multaJuros;?>">
-										</div>
-									</div>
-
-									
-	
 								    <br>
 									<button type="submit" class="btn btn-outline-primary"><i class="fas fa-save"></i> Salvar</button>
 

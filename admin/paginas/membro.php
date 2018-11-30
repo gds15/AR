@@ -139,7 +139,6 @@
 										required
 										data-validation-required-message="Digite sua data de nascimento"
 										data-mask="99/99/9999"
-										onblur="verificaData(this.value)"
 										value="<?=$datanascimento;?>"
 										class="form-control">
 									</div>
@@ -302,27 +301,6 @@
 						})
 					}
 					$("#mascara").hide();
-				}
-
-				//funcao para verificar a data
-				function verificaData( data ) {
-					//mostrar a mascara
-					$("#mascara").show("fast");
-
-					if ( data != "") {
-						//ajax
-						$.get("paginas/data.php",
-							{data:data},
-							function(dados){
-
-							if ( dados != "ok" ) {
-								alert(dados);
-								$("#datanascimento").focus();
-								$("#datanascimento").val('');
-							}
-						})
-					}
-					$("#mascara").hide("fast");
 				}
 			</script>
 
