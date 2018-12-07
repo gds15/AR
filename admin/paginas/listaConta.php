@@ -32,7 +32,7 @@
 			$palavra = "%$palavra%";
 
 			//buscar da funcao
-			$sql = "select *, date_format(data, '%d-%m-%Y') data from conta where descricao like ? order by descricao";
+			$sql = "select *, date_format(data, '%d-%m-%Y') data, date_format(dataPagamento, '%d-%m-%Y') dataPagamento from conta where ativo = 's' order by descricao";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $palavra);
 			//executar o sql
@@ -55,7 +55,7 @@
 					<td>Descrição</td>
 					<td>Valor</td>
 					<td>Valor Pago</td>
-					<td>Juros</td>
+					<td>data Pagamento</td>
 					<td width="15%">Opções</td>
 				</tr>
 			</thead>
@@ -69,7 +69,7 @@
 				$descricao  = $dados->descricao;
 				$valor      = $dados->valor;
 				$valorPago  = $dados->valorPago;
-				$multaJuros = $dados->multaJuros;
+				$dataPagamento = $dados->dataPagamento;
 
 				echo "<tr>
 					<td>$id</td>
@@ -77,7 +77,7 @@
 					<td>$descricao</td>
 					<td>$valor</td>
 					<td>$valorPago</td>
-					<td>$multaJuros</td>
+					<td>$dataPagamento</td>
 					<td>
 						<a href='contas/$id'
 						class='btn btn-outline-primary'>

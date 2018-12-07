@@ -50,8 +50,8 @@
 			if ( empty ( $id ) ) {
 
 				//gravar no banco de dados
-				$sql = "insert into conta (id, data, descricao, valor, valorPago, dataPagamento)
-				values (NULL, ? , ?, ?, ?, ?)";
+				$sql = "insert into conta (id, data, descricao, valor, valorPago, dataPagamento, ativo)
+				values (NULL, ? , ?, ?, ?, ?, 's')";
 				$consulta = $pdo->prepare($sql);
 				//passar o parametro
 				$consulta->bindParam(1, $data);
@@ -62,7 +62,7 @@
 			} else {
 				//dar update
 				$sql = "update conta 
-					set data = ?, descricao = ?, valor = ?, valorPago = ?, dataPagamento = ? where id = ? limit 1";
+					set data = ?, descricao = ?, valor = ?, valorPago = ?, dataPagamento = ?, ativo = 's' where id = ? limit 1";
 				$consulta = $pdo->prepare( $sql );
 				$consulta->bindParam(1, $data);
 				$consulta->bindParam(2, $descricao);

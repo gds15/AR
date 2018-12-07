@@ -1,4 +1,5 @@
 <?php
+	date_default_timezone_set('America/Sao_Paulo');
 
 	$id = $data = $descricao = $valor = $valorPago = $dataPagamento =  "";
 	$data = date("d-m-Y");
@@ -92,7 +93,6 @@
 									<div class="controls">
 										<input type="text" name="dataPagamento" 
 										id="dataPagamento" 
-										required
 										data-mask="99-99-9999"
 										value="<?=$dataPagamento;?>"
 										class="form-control">
