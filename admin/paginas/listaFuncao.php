@@ -45,9 +45,8 @@
 			Registros:</p>";
 
 		?>
-		
-		
-		<table class="table-dark table-striped table table-bordered">
+
+		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
@@ -56,11 +55,11 @@
 				</tr>
 			</thead>
 			<?php
-			//mostrar os resultados da busca
+
 			while ( $dados = $consulta->fetch( PDO::FETCH_OBJ ) ) {
 
 				//separar os dados do banco de dados
-				$id = $dados->id;
+				$id     = $dados->id;
 				$funcao = $dados->funcao;
 
 				echo "<tr>
@@ -72,16 +71,14 @@
 							<i class='fas fa-pen-square'></i>
 						</a>
 						
-					<a href='javascript:deletar($id)' 
+						<a href='javascript:deletar($id)' 
 						class='btn btn-outline-danger'>
 							<i class='fa fa-trash'></i>
 						</a>
 					</td>
 				</tr>";
-
 			}
-
-			?>
+		?>
 		</table>
 	
 
@@ -94,6 +91,24 @@
 				location.href = "excluirFuncao/"+id;
 			}
 		}
+
+		$(document).ready( function(){
+			//aplicar o dataTable na tabela
+			$(".table").dataTable({
+				"language": {
+		            "lengthMenu": "Mostrando _MENU_ registros por página",
+		            "zeroRecords": "Nenhum dado encontrado - sorry",
+		            "info": "Mostrando _PAGE_ de _PAGES_",
+		            "infoEmpty": "Nenhum dado",
+		            "infoFiltered": "(filtrado de _MAX_ total)",
+		            "search": "Busca: ",
+		            "paginate": {
+				      "previous": "Anterior",
+				      "next": "Próxima"
+				    }
+		        }
+			});
+		})
 	</script>
 
 

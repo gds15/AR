@@ -11,7 +11,7 @@
 		//recuperar o id por get
 		$id = trim( $parametro[1] );
 		//selecionar os dados do banco
-		$sql = "select *, date_format(data, '%d-%m-%Y') data from conta where id = ? limit 1";
+		$sql = "select *, date_format(data, '%d-%m-%Y') data, date_format(dataPagamento, '%d-%m-%Y') dataPagamento  from conta where id = ? limit 1";
 		//prepare
 		$consulta = $pdo->prepare( $sql );
 		//passar um parametro
@@ -23,7 +23,7 @@
 
 		$id          = $dados->id;
 		$data        = $dados->data;
-		$descricao   =$dados->descricao;
+		$descricao   = $dados->descricao;
 		$valor       = $dados->valor;
 		$valorPago   = $dados->valorPago;
 		$multaJuros  = $dados->multaJuros;
@@ -31,7 +31,7 @@
 		//formatar o valor - passar p formato R$
 		$valor = number_format( $valor, 2, "," , ".");
 		$valorPago = number_format( $valorPago, 2, "," , ".");
-		$multaJuros = number_format( $multaJuros, 2, "," , ".");
+		
 	}
 ?>
 <div class="container py-1">

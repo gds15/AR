@@ -44,7 +44,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <!-- Datatables CSS -->
-    <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
     <!--  CSS do menu -->
     <link rel="stylesheet" href="style5.css">
     <!--datepicker-->
@@ -254,7 +254,7 @@
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!-- DataTables JS -->
-    <script src="../js/dataTables.bootstrap4.min.js"></script>
+    <script src="../js/dataTables.bootstrap.min.js"></script>
     <!-- maskMoney -->
     <script type="text/javascript" src="../js/jquery.maskMoney.min.js"></script>
 

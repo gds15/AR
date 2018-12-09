@@ -27,7 +27,7 @@
 		<?php
 
 			$palavra = "";
-			if ( isset ( $_GET["palavra"] ) ) $palavra = trim ( $_GET["palavra"] );
+			if ( isset ( $parametro[1] ) ) $palavra = trim ( $parametro[1] );
 
 			$palavra = "%$palavra%";
 
@@ -46,8 +46,7 @@
 
 		?>
 		
-		
-		<table class="table-dark table-striped table table-bordered">
+		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
@@ -64,19 +63,22 @@
 			while ( $dados = $consulta->fetch( PDO::FETCH_OBJ ) ) {
 
 				//separar os dados do banco de dados
-				$id         = $dados->id;
-				$data       = $dados->data;
-				$descricao  = $dados->descricao;
-				$valor      = $dados->valor;
-				$valorPago  = $dados->valorPago;
+				$id            = $dados->id;
+				$data          = $dados->data;
+				$descricao     = $dados->descricao;
+				$valor         = $dados->valor;
+				$valorPago     = $dados->valorPago;
 				$dataPagamento = $dados->dataPagamento;
+
+				$valor = number_format( $valor , 2 , "," , "." );
+				$valorPago = number_format( $valorPago , 2 , "," , "." );
 
 				echo "<tr>
 					<td>$id</td>
 					<td>$data</td>
 					<td>$descricao</td>
-					<td>$valor</td>
-					<td>$valorPago</td>
+					<td>R$ $valor</td>
+					<td>R$ $valorPago</td>
 					<td>$dataPagamento</td>
 					<td>
 						<a href='contas/$id'
@@ -84,7 +86,7 @@
 							<i class='fas fa-pen-square'></i>
 						</a>
 						
-					<a href='javascript:deletar($id)' 
+						<a href='javascript:deletar($id)' 
 						class='btn btn-outline-danger'>
 							<i class='fa fa-trash'></i>
 						</a>
@@ -106,6 +108,24 @@
 				location.href = "excluirConta/"+id;
 			}
 		}
+
+		$(document).ready( function(){
+			//aplicar o dataTable na tabela
+			$(".table").dataTable({
+				"language": {
+		            "lengthMenu": "Mostrando _MENU_ registros por página",
+		            "zeroRecords": "Nenhum dado encontrado - sorry",
+		            "info": "Mostrando _PAGE_ de _PAGES_",
+		            "infoEmpty": "Nenhum dado",
+		            "infoFiltered": "(filtrado de _MAX_ total)",
+		            "search": "Busca: ",
+		            "paginate": {
+				      "previous": "Anterior",
+				      "next": "Próxima"
+				    }
+		        }
+			});
+		})
 	</script>
 
 
