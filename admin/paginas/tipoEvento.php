@@ -30,7 +30,7 @@ if ( isset ($parametro[1] ) ) {
                     <!-- form funcao -->
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="mb-0">Cadastro de Função</h4>
+                            <h4 class="mb-0">Cadastro de Tipo de Evento</h4>
                         </div>
                         <div class="card-body">
                         <form name="formcadastro" method="post" action="salvarTipoEvento" novalidate>

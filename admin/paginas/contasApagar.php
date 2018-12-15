@@ -22,7 +22,7 @@
         <td>Descrição</td>
         <td>Valor</td>
         <td>Valor Pago</td>
-        <td>Multa</td>
+        <td>Data Pagamento</td>
       </tr>
     </thead>
 
@@ -38,7 +38,7 @@
       if ( strtotime( $datai ) > strtotime( $dataf ) ) {
         echo "<script>alert('A data inicial não pode ser maior que a data final');history.back();</script>";
       } else {
-        $sql = "select *, date_format(data, '%d-%m-%Y') data from conta where valorPago = '' order by data";
+        $sql = "select *, date_format(data, '%d-%m-%Y') data, date_format(dataPagamento, '%d-%m-%Y') dataPagamento from conta where data >= ? and data <= ? and valorPago = '' order by data";
 
         $consulta = $pdo->prepare($sql);
         $consulta->bindParam(1, $datai);
@@ -51,20 +51,20 @@
           $descricao  = $dados->descricao;
           $valor      = $dados->valor;
           $valorPago  = $dados->valorPago;
-          $multa      = $dados->multaJuros;
+          $dataPagamento = $dados->dataPagamento;
+          
 
           //formatar o valor - passar p formato R$
           $valor = number_format( $valor, 2, "," , ".");
           $valorPago = number_format( $valorPago, 2, "," , ".");
-          $multa = number_format( $multa, 2, "," , ".");
-
+          
           echo "<tr>
             <td>$id</td>
             <td>$data</td>
             <td>$descricao</td>
-            <td>$valor</td>
-            <td>$valorPago</td>
-            <td>$multa</td>
+            <td>R$: $valor</td>
+            <td>R$: $valorPago</td>
+            <td>$dataPagamento</td>
           </tr>";
         }
       }

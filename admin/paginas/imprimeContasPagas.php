@@ -4,7 +4,7 @@
                     <!-- form usuario -->
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="mb-0">Relatórios de Contas Pagas</h4>
+                            <h4 class="mb-0">Relatórios de Contas Pagas por Data de Pagamento</h4>
                         </div>
                         <div class="card-body">
 	                        <form name="form1" method="post" action="contasPagas" novalidate>

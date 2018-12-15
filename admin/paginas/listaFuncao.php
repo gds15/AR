@@ -46,7 +46,7 @@
 
 		?>
 
-		<table class="table table-bordered table-striped table-hover">
+		<table id="minhaTabela" class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
@@ -94,7 +94,7 @@
 
 		$(document).ready( function(){
 			//aplicar o dataTable na tabela
-			$(".table").dataTable({
+			$("#minhaTabela").dataTable({
 				"language": {
 		            "lengthMenu": "Mostrando _MENU_ registros por página",
 		            "zeroRecords": "Nenhum dado encontrado - sorry",
