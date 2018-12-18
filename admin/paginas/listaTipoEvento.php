@@ -10,19 +10,8 @@
 		</a>
 
 		<div class="clearfix"></div>
-		<br> 
-		<form name="formpesquisa" method="get"
-		class="form-inline text-center">
-			<label for="palavra">Palavra-chave:
-			<input type="text" name="palavra"
-			required placeholder="Digite uma palavra"
-			class="form-control">
-			</label>
-			<button type="submit" class="btn btn-outline-success">
-				<i class="fa fa-search">
-				</i>
-			</button>
-		</form>
+		<br>
+		
 
 		<?php
 
@@ -47,7 +36,7 @@
 		?>
 		
 		
-		<table class="table-dark table-striped table table-bordered">
+		<table id="tabela" class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
@@ -94,6 +83,8 @@
 				location.href = "excluirtipoEvento/"+id;
 			}
 		}
+
+
 	</script>
 
 

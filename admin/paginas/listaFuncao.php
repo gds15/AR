@@ -11,18 +11,7 @@
 
 		<div class="clearfix"></div>
 		<br> 
-		<form name="formpesquisa" method="get"
-		class="form-inline text-center">
-			<label for="palavra">Palavra-chave:
-			<input type="text" name="palavra"
-			required placeholder="Digite uma palavra"
-			class="form-control">
-			</label>
-			<button type="submit" class="btn btn-outline-success">
-				<i class="fa fa-search">
-				</i>
-			</button>
-		</form>
+	
 
 		<?php
 
@@ -46,7 +35,7 @@
 
 		?>
 
-		<table id="minhaTabela" class="table table-bordered table-striped table-hover">
+		<table id="tabela" class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>

@@ -11,18 +11,7 @@
 
 		<div class="clearfix"></div>
 		<br> 
-		<form name="formpesquisa" method="get"
-		class="form-inline text-center">
-			<label for="palavra">Palavra-chave:
-			<input type="text" name="palavra"
-			required placeholder="Digite uma palavra"
-			class="form-control">
-			</label>
-			<button type="submit" class="btn btn-outline-success">
-				<i class="fa fa-search">
-				</i>
-			</button>
-		</form>
+		
 
 		<?php
 
@@ -32,7 +21,7 @@
 			$palavra = "%$palavra%";
 
 			//buscar da funcao
-			$sql = "select *, date_format(data, '%d-%m-%Y') data from dizimo";
+			$sql = "select d.*, date_format(data, '%d-%m-%Y') data, m.nome from dizimo d inner join membro m on ( d.membro = m.id)";
 			$consulta = $pdo->prepare($sql);
 			$consulta->bindParam(1, $palavra);
 			//executar o sql
@@ -47,7 +36,7 @@
 		?>
 		
 		
-		<table class="table-dark table-striped table table-bordered">
+		<table id="tabela" class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>
@@ -64,16 +53,18 @@
 
 				//separar os dados do banco de dados
 				$id     = $dados->id;
-				$membro = $dados->membro;
+				$membro = $dados->nome;
 				$valor  = $dados->valor;
 				$desc   = $dados->desc;
 				$data  = $dados->data;
+
+				$valor = number_format( $valor , 2 , "," , "." );
 			
 
 				echo "<tr>
 					<td>$id</td>
 					<td>$membro</td>
-					<td>$valor</td>
+					<td>R$ $valor</td>
 					<td>$desc</td>
 					<td>$data</td>
 					<td>

@@ -9,7 +9,7 @@
 		</a>
 
 		<div class="clearfix"></div>
-
+		<br>
 		
 		<?php
 
@@ -28,7 +28,7 @@
 
 		?>
 
-		<table class="table-dark table-striped table table-bordered">
+		<table id="tabela" class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
 					<td width="10%">ID</td>

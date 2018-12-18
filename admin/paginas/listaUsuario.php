@@ -11,6 +11,7 @@
 		</a>
 
 		<div class="clearfix"></div>
+		<br>
 
 		<?php
 			
@@ -29,7 +30,7 @@
 		?>
 
 	
-		<table class="table-dark table-striped table table-bordered" width="100%" id="dataTable" cellspacing="0">
+		<table id="tabela" class="table table-bordered table-striped table-hover" width="100%" id="dataTable" cellspacing="0">
 			<thead>
 				<tr>
 					<td>ID</td>
