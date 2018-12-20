@@ -1,9 +1,8 @@
 <?php
 	date_default_timezone_set('America/Sao_Paulo');
 
-	$id = $data = $descricao = $valor = $valorPago = $dataPagamento =  "";
-	$data = date("d-m-Y");
-	//$dataPagamento = date("d-m-Y"); a data pagamento e melhor n estar preenchida
+	$id = $data = $descricao = $valor = $valorPago = $dataPagamento = $motivoEstorno =  "";
+	$quemEstornou = $_SESSION["admin"]["login"];
 
 	//verificar se está editando
 	if ( isset ($parametro[1] ) ) {
@@ -21,11 +20,18 @@
 		//separar os dados
 		$dados = $consulta->fetch(PDO::FETCH_OBJ);
 
-		$id          = $dados->id;
-		$data        = $dados->data;
-		$descricao   = $dados->descricao;
-		$valor       = $dados->valor;
-		$valorPago   = $dados->valorPago;
+		$id            = $dados->id;
+		$data          = $dados->data;
+		$descricao     = $dados->descricao;
+		$valor         = $dados->valor;
+		$valorPago     = $dados->valorPago;
+		$dataPagamento = $dados->dataPagamento;
+		$motivoEstorno = $dados->motivoEstorno;
+		$quemEstornou  = $dados->quemEstornou;
+
+		if ($quemEstornou == "") {
+			$quemEstornou = $_SESSION["admin"]["login"];
+		}
 
 		//formatar o valor - passar p formato R$
 		$valor = number_format( $valor, 2, "," , ".");
@@ -39,10 +45,10 @@
                     <!-- form usuario -->
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="mb-0">Contas a Pagar</h4>
+                            <h4 class="mb-0">Estorno de Contas</h4>
                         </div>
                         <div class="card-body">
-	                        <form name="formcadastro" method="post" action="salvarContas" novalidate>
+	                        <form name="formcadastro" method="post" action="salvarEstorno" novalidate>
 								<fieldset>
 									<legend>Preencha os campos:</legend>
 
@@ -61,7 +67,7 @@
 								    <div class="control-group">
 								    <label for="calendario">Data Vencimento:</label>
 								    <div class="controls">
-								    	<input type="text" name="data" class="form-control col-sm-3" id="calendario" value="<?=$data;?>">
+								    	<input type="text" name="data" class="form-control col-sm-3" id="calendario" readonly value="<?=$data;?>">
 								    </div>	
 								    </div>
 
@@ -70,6 +76,7 @@
 										<div class="controls">
 											<input type="text" name="descricao"
 											class="form-control" id="descricao"
+											readonly
 											data-validation-required-message="Preencha a descrição"
 											value="<?=$descricao;?>">
 										</div>
@@ -80,12 +87,11 @@
 										<div class="controls">
 											<input type="text" name="valor"
 											class="form-control valor" id="valor"
+											readonly
 											data-validation-required-message="Preencha o valor"
 											value="<?=$valor;?>">
 										</div>
 									</div>
-
-									<hr>
 
 									<div class="control-group">
 									<label for="dataPagamento">Data de Pagamento:</label>
@@ -93,6 +99,7 @@
 										<input type="text" name="dataPagamento" 
 										id="dataPagamento" 
 										data-mask="99-99-9999"
+										readonly
 										value="<?=$dataPagamento;?>"
 										class="form-control">
 									</div>
@@ -103,7 +110,31 @@
 										<div class="controls">
 											<input type="text" name="valorPago"
 											class="form-control valor" id="valorPago"
+											readonly
 											value="<?=$valorPago;?>">
+										</div>
+									</div>
+
+									<hr>
+
+									<div class="control-group">
+									<label for="motivoEstorno">Motivo do Estorno:</label>
+										<div class="controls">
+											<input type="text" name="motivoEstorno"
+											class="form-control" id="motivoEstorno"
+											data-validation-required-message="o motivo do estorno"
+											value="<?=$motivoEstorno;?>">
+										</div>
+									</div>
+
+									<div class="control-group">
+									<label for="quemEstornou">Quem Estornou:</label>
+										<div class="controls">
+											<input type="text" name="quemEstornou"
+											class="form-control" id="quemEstornou"
+											readonly
+											data-validation-required-message="Preencha quem estornou"
+											value="<?=$quemEstornou;?>">
 										</div>
 									</div>
 

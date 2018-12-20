@@ -79,6 +79,11 @@
 						class='btn btn-outline-danger'>
 							<i class='fa fa-trash'></i>
 						</a>
+
+						<a href='estorno/$id'
+						class='btn btn-outline-primary'>
+							<i class='fas fa-undo-alt'></i>
+						</a>
 					</td>
 				</tr>";
 

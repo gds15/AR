@@ -139,6 +139,9 @@
                         </li>  
                         <li>
                             <a href="listaDizimo">Dizimos</a>
+                        </li>
+                        <li>
+                            <a href="listaEstorno">Estornos</a>
                         </li>                     
                     </ul>
                 </li>
