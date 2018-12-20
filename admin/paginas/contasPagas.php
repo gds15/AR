@@ -38,7 +38,7 @@
       if ( strtotime( $datai ) > strtotime( $dataf ) ) {
         echo "<script>alert('A data inicial não pode ser maior que a data final');history.back();</script>";
       } else {
-        $sql = "select *, date_format(data, '%d-%m-%Y') data, date_format(dataPagamento, '%d-%m-%Y') dataPagamento from conta where data >= ? and data <= ? and valorPago <> '' order by data";
+        $sql = "select *, date_format(data, '%d-%m-%Y') data, date_format(dataPagamento, '%d-%m-%Y') dataPagamento from conta where dataPagamento >= ? and dataPagamento <= ? and valorPago <> '' and ativo = 's' order by data";
 
         $consulta = $pdo->prepare($sql);
         $consulta->bindParam(1, $datai);

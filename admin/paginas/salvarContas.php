@@ -12,6 +12,9 @@
 
 		$data          = formatardata( $data );
 		$dataPagamento = formatardata( $dataPagamento );
+
+		$valor = formatarvalor($valor);
+		$valorPago = formatarvalor($valorPago);
 		
 
 
