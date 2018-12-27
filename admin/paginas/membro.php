@@ -198,44 +198,17 @@
                                 </div>
 
                                 <div class="control-group">
-									<label for="nome">Estado:</label>
-									<div class="controls">
-										<select	name="estado"
-											class="form-control"
-											required
-											data-validation-required-message="Selecione o Estado"
-											placeholder="Selecione o Estado">
-												<option value="<?=$estado;?>"><?=$estado;?></option>
-												<option value="ac">Acre</option>
-												<option value="al">Alagoas</option>
-												<option value="ap">Amapá</option>
-												<option value="ba">Bahia</option>
-												<option value="ce">Ceará</option>
-												<option value="df">Distrito Federal</option>
-												<option value="al">Espirito Santo</option>
-												<option value="go">Goiás</option>
-												<option value="ma">Maranhão</option>
-												<option value="mt">Mato Grosso</option>
-												<option value="ms">Mato Grosso do Sul</option>
-												<option value="mg">Minas Gerais</option>
-												<option value="pa">Pará</option>
-												<option value="pb">Paraíba</option>
-												<option value="pr">Paraná</option>
-												<option value="pe">Pernambuco</option>
-												<option value="pi">Piauí</option>
-												<option value="rj">Rio de Janeiro</option>
-												<option value="rn">Rio Grande do Norte</option>
-												<option value="rs">Rio Grande do Sul</option>
-												<option value="ro">Rondônia</option>
-												<option value="rr">Roraima</option>
-												<option value="sc">Santa Catarina</option>
-												<option value="sp">São Paulo</option>
-												<option value="se">Sergipe</option>
-												<option value="to">Tocantins</option>			
-
-											</select>
-									</div>
-								</div>
+                                    <label for="estado">
+                                   	Estado:</label>
+                                    <div class="controls">
+                                        <input type="text" 
+                                        name="estado"
+                                        class="form-control"
+                                        required
+                                        data-validation-required-message="Preencha o estado"
+                                        value="<?=$estado;?>">
+                                    </div>
+                                </div>
 
 								<div class="control-group">
                                     <label for="cep">

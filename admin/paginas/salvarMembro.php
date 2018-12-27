@@ -24,7 +24,7 @@
 		$hoje = date();
 
 
-		if ($datanascimento > $hoje) {
+		if ($datanascimento >= $hoje) {
 			echo "<script>alert('A data de nascimento não pode ser maior que a data de hoje.');history.back();</script>";
 		} else {
 		
