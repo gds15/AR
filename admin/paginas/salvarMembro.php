@@ -21,7 +21,7 @@
 		$bairro				= trim ( $_POST["bairro"] );
 		$cep 				= trim ( $_POST["cep"] );
 
-		$hoje = date();
+		$hoje = date("Y-m-d");
 
 
 		if ($datanascimento >= $hoje) {
